@@ -13,7 +13,7 @@ class GroceryList {
     // MARK: Properties
     
     var name: String
-    var item: GroceryItem
+    var items: [GroceryItem]
     
     struct GroceryItem {
         var itemName: String
@@ -29,13 +29,13 @@ class GroceryList {
     
     // MARK: Initialization
     
-    init?(name: String, item: GroceryItem) {
+    init?(name: String, items: [GroceryItem]) {
         if name.isEmpty {
             return nil
         }
         
         self.name = name
-        self.item = item
+        self.items = items
     }
     
 }

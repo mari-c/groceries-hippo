@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="1079.2" y="132.68365817091455"/>
         </scene>
-        <!--Table View Controller-->
+        <!--List Table View Controller-->
         <scene sceneID="hcb-4P-qSt">
             <objects>
-                <tableViewController id="DmG-mm-3P9" sceneMemberID="viewController">
+                <tableViewController id="DmG-mm-3P9" customClass="ListTableViewController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="azd-9i-7j5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,14 +94,15 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3S-Zh-hRn">
                                                     <rect key="frame" x="0.0" y="0.0" width="33.5" height="33.5"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" secondItem="X3S-Zh-hRn" secondAttribute="height" multiplier="1:1" id="14z-bg-47e"/>
                                                         <constraint firstAttribute="height" constant="33.5" id="Tq2-hQ-IrB"/>
-                                                        <constraint firstAttribute="width" constant="33.5" id="cFa-wH-q22"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33.5" id="cFa-wH-q22"/>
                                                     </constraints>
-                                                    <state key="normal" title="Edit Icon" image="EditIcon"/>
+                                                    <state key="normal" title="Edit Icon" image="editIcon"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMj-sR-KnZ">
                                                     <rect key="frame" x="41.5" y="0.0" width="33.5" height="33.5"/>
-                                                    <state key="normal" title="Delete Icon" image="Trashcan"/>
+                                                    <state key="normal" title="Delete Icon" image="trashcan"/>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -152,8 +154,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EditIcon" width="428" height="414"/>
-        <image name="Trashcan" width="344" height="367"/>
+        <image name="editIcon" width="428" height="414"/>
         <image name="groceryStore" width="640" height="828"/>
+        <image name="trashcan" width="344" height="367"/>
     </resources>
 </document>
