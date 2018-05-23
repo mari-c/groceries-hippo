@@ -10,6 +10,7 @@
 		56417A1A20B440BC00637A58 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417A1920B440BC00637A58 /* ListTableViewCell.swift */; };
 		56417A1C20B44DD900637A58 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417A1B20B44DD900637A58 /* ListTableViewController.swift */; };
 		56417A1E20B44E2800637A58 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417A1D20B44E2800637A58 /* GroceryList.swift */; };
+		56417A3320B4992E00637A58 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417A3220B4992E00637A58 /* AddListViewController.swift */; };
 		56A07E4220B2F7F400B02DE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A07E4120B2F7F400B02DE2 /* AppDelegate.swift */; };
 		56A07E4420B2F7F400B02DE2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A07E4320B2F7F400B02DE2 /* HomeViewController.swift */; };
 		56A07E4720B2F7F400B02DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4520B2F7F400B02DE2 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		56417A1B20B44DD900637A58 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		56417A1D20B44E2800637A58 /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		56417A2820B454F800637A58 /* GroceryGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56417A3220B4992E00637A58 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		56A07E3E20B2F7F400B02DE2 /* GroceryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A07E4120B2F7F400B02DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56A07E4320B2F7F400B02DE2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				56A07E4120B2F7F400B02DE2 /* AppDelegate.swift */,
 				56A07E4320B2F7F400B02DE2 /* HomeViewController.swift */,
 				56A07E4520B2F7F400B02DE2 /* Main.storyboard */,
+				56417A3220B4992E00637A58 /* AddListViewController.swift */,
 				56417A1B20B44DD900637A58 /* ListTableViewController.swift */,
 				56417A1D20B44E2800637A58 /* GroceryList.swift */,
 				56417A1920B440BC00637A58 /* ListTableViewCell.swift */,
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56417A3320B4992E00637A58 /* AddListViewController.swift in Sources */,
 				56A07E4420B2F7F400B02DE2 /* HomeViewController.swift in Sources */,
 				56A07E4220B2F7F400B02DE2 /* AppDelegate.swift in Sources */,
 				56417A1E20B44E2800637A58 /* GroceryList.swift in Sources */,
