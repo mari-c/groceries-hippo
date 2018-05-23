@@ -20,10 +20,14 @@ class GroceryList {
         var image: UIImage?
         let quantity: Int
         
-        init(itemName: String, image: UIImage?, quantity: Int) {
+        init?(itemName: String, image: UIImage?, quantity: Int) {
             self.itemName = itemName
             self.image = image
             self.quantity = quantity
+            
+            if quantity < 1 {
+                return nil
+            }
         }
     }
     
