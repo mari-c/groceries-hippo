@@ -16,10 +16,18 @@
 		56A07E4720B2F7F400B02DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4520B2F7F400B02DE2 /* Main.storyboard */; };
 		56A07E4920B2F7F500B02DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4820B2F7F500B02DE2 /* Assets.xcassets */; };
 		56A07E4C20B2F7F500B02DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4A20B2F7F500B02DE2 /* LaunchScreen.storyboard */; };
+		F41CB1C620B5367500C7D9F7 /* GroceryGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41CB1C520B5367500C7D9F7 /* GroceryGameTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		56417A2D20B454F800637A58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56A07E3620B2F7F300B02DE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56A07E3D20B2F7F300B02DE2;
+			remoteInfo = GroceryGame;
+		};
+		F41CB1C820B5367500C7D9F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56A07E3620B2F7F300B02DE2 /* Project object */;
 			proxyType = 1;
@@ -41,6 +49,9 @@
 		56A07E4820B2F7F500B02DE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56A07E4B20B2F7F500B02DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56A07E4D20B2F7F500B02DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F41CB1C320B5367500C7D9F7 /* GroceryGameTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryGameTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F41CB1C520B5367500C7D9F7 /* GroceryGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryGameTest.swift; sourceTree = "<group>"; };
+		F41CB1C720B5367500C7D9F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F41CB1C020B5367500C7D9F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				56A07E4020B2F7F400B02DE2 /* GroceryGame */,
+				F41CB1C420B5367500C7D9F7 /* GroceryGameTest */,
 				56A07E3F20B2F7F400B02DE2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +93,7 @@
 			children = (
 				56A07E3E20B2F7F400B02DE2 /* GroceryGame.app */,
 				56417A2820B454F800637A58 /* GroceryGameTests.xctest */,
+				F41CB1C320B5367500C7D9F7 /* GroceryGameTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +113,15 @@
 				56A07E4D20B2F7F500B02DE2 /* Info.plist */,
 			);
 			path = GroceryGame;
+			sourceTree = "<group>";
+		};
+		F41CB1C420B5367500C7D9F7 /* GroceryGameTest */ = {
+			isa = PBXGroup;
+			children = (
+				F41CB1C520B5367500C7D9F7 /* GroceryGameTest.swift */,
+				F41CB1C720B5367500C7D9F7 /* Info.plist */,
+			);
+			path = GroceryGameTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +162,24 @@
 			productReference = 56A07E3E20B2F7F400B02DE2 /* GroceryGame.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F41CB1C220B5367500C7D9F7 /* GroceryGameTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F41CB1CA20B5367500C7D9F7 /* Build configuration list for PBXNativeTarget "GroceryGameTest" */;
+			buildPhases = (
+				F41CB1BF20B5367500C7D9F7 /* Sources */,
+				F41CB1C020B5367500C7D9F7 /* Frameworks */,
+				F41CB1C120B5367500C7D9F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F41CB1C920B5367500C7D9F7 /* PBXTargetDependency */,
+			);
+			name = GroceryGameTest;
+			productName = GroceryGameTest;
+			productReference = F41CB1C320B5367500C7D9F7 /* GroceryGameTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -145,10 +192,15 @@
 				TargetAttributes = {
 					56417A2720B454F800637A58 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 						TestTargetID = 56A07E3D20B2F7F300B02DE2;
 					};
 					56A07E3D20B2F7F300B02DE2 = {
 						CreatedOnToolsVersion = 9.3.1;
+					};
+					F41CB1C220B5367500C7D9F7 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 56A07E3D20B2F7F300B02DE2;
 					};
 				};
 			};
@@ -167,6 +219,7 @@
 			targets = (
 				56A07E3D20B2F7F300B02DE2 /* GroceryGame */,
 				56417A2720B454F800637A58 /* GroceryGameTests */,
+				F41CB1C220B5367500C7D9F7 /* GroceryGameTest */,
 			);
 		};
 /* End PBXProject section */
@@ -186,6 +239,13 @@
 				56A07E4C20B2F7F500B02DE2 /* LaunchScreen.storyboard in Resources */,
 				56A07E4920B2F7F500B02DE2 /* Assets.xcassets in Resources */,
 				56A07E4720B2F7F400B02DE2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F41CB1C120B5367500C7D9F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +272,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F41CB1BF20B5367500C7D9F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F41CB1C620B5367500C7D9F7 /* GroceryGameTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -219,6 +287,11 @@
 			isa = PBXTargetDependency;
 			target = 56A07E3D20B2F7F300B02DE2 /* GroceryGame */;
 			targetProxy = 56417A2D20B454F800637A58 /* PBXContainerItemProxy */;
+		};
+		F41CB1C920B5367500C7D9F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56A07E3D20B2F7F300B02DE2 /* GroceryGame */;
+			targetProxy = F41CB1C820B5367500C7D9F7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -246,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GroceryGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -255,6 +329,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.none.GroceryGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GroceryGame.app/GroceryGame";
@@ -265,6 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GroceryGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -428,6 +504,44 @@
 			};
 			name = Release;
 		};
+		F41CB1CB20B5367500C7D9F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GroceryGameTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahely.GroceryGameTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GroceryGame.app/GroceryGame";
+			};
+			name = Debug;
+		};
+		F41CB1CC20B5367500C7D9F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GroceryGameTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahely.GroceryGameTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GroceryGame.app/GroceryGame";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -454,6 +568,15 @@
 			buildConfigurations = (
 				56A07E5120B2F7F500B02DE2 /* Debug */,
 				56A07E5220B2F7F500B02DE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F41CB1CA20B5367500C7D9F7 /* Build configuration list for PBXNativeTarget "GroceryGameTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F41CB1CB20B5367500C7D9F7 /* Debug */,
+				F41CB1CC20B5367500C7D9F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

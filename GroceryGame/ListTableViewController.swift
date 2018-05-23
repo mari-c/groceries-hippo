@@ -115,13 +115,13 @@ class ListTableViewController: UITableViewController {
         let eggs2 = GroceryList.GroceryItem(itemName: "Eggs", image: UIImage(named: "eggCarton"), quantity: 2)
         let cereal = GroceryList.GroceryItem(itemName: "Cereal", image: UIImage(named: "cerealCarton"), quantity: 3)
         
-        guard let list1 = GroceryList(name: "Sample List 1", items: [milk2]) else {
+        guard let list1 = GroceryList(name: "Sample List 1", items: [milk2!]) else {
             fatalError("Unable to instantiate sample list 1")
         }
-        guard let list2 = GroceryList(name: "Sample List 2", items: [milk1, eggs1, cereal]) else {
+        guard let list2 = GroceryList(name: "Sample List 2", items: [milk1!, eggs1!, cereal!]) else {
             fatalError("Unable to instantiate sample list 2")
         }
-        guard let list3 = GroceryList(name: "Sample List 3", items: [milk2, eggs2, cereal]) else {
+        guard let list3 = GroceryList(name: "Sample List 3", items: [milk2!, eggs2!, cereal!]) else {
             fatalError("Unable to instantiate sample list 3")
         }
         
