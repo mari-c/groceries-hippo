@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ListTableViewController: UITableViewController {
     
@@ -96,15 +97,54 @@ class ListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+    // MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "NewList":
+            os_log("Adding a new grocery list.", log: OSLog.default, type: .debug)
+        case "EditList":
+            guard let listDetailViewController = segue.destination as? AddListViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedListCell = sender as? ListTableViewCell else {
+                fatalError("Unexpected sender: \(sender ?? "")")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedListCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedList = lists[indexPath.row]
+            listDetailViewController.list = selectedList
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "")")
+        }
     }
-    */
+    
+    // MARK: Actions
+    
+    @IBAction func unwindToGroceryLists(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AddListViewController, let list = sourceViewController.list {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing grocery list
+                lists[selectedIndexPath.row] = list
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                // Add a new grocery list
+                let newIndexPath = IndexPath(row: lists.count, section: 0)
+                lists.append(list)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            
+            // Save the grocery lists
+            // TODO: implement saveGroceryLists()
+        }
+    }
     
     // MARK: Private Methods
     

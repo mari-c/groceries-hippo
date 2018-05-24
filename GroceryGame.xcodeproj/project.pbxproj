@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5640743B20B6E54A00DBA73D /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640743A20B6E54A00DBA73D /* ItemTableViewCell.swift */; };
 		56417A1A20B440BC00637A58 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417A1920B440BC00637A58 /* ListTableViewCell.swift */; };
 		56417A1C20B44DD900637A58 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417A1B20B44DD900637A58 /* ListTableViewController.swift */; };
 		56417A1E20B44E2800637A58 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56417A1D20B44E2800637A58 /* GroceryList.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5640743A20B6E54A00DBA73D /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		56417A1920B440BC00637A58 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		56417A1B20B44DD900637A58 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		56417A1D20B44E2800637A58 /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
@@ -103,11 +105,12 @@
 			children = (
 				56A07E4120B2F7F400B02DE2 /* AppDelegate.swift */,
 				56A07E4320B2F7F400B02DE2 /* HomeViewController.swift */,
-				56A07E4520B2F7F400B02DE2 /* Main.storyboard */,
 				56417A3220B4992E00637A58 /* AddListViewController.swift */,
 				56417A1B20B44DD900637A58 /* ListTableViewController.swift */,
 				56417A1D20B44E2800637A58 /* GroceryList.swift */,
 				56417A1920B440BC00637A58 /* ListTableViewCell.swift */,
+				5640743A20B6E54A00DBA73D /* ItemTableViewCell.swift */,
+				56A07E4520B2F7F400B02DE2 /* Main.storyboard */,
 				56A07E4820B2F7F500B02DE2 /* Assets.xcassets */,
 				56A07E4A20B2F7F500B02DE2 /* LaunchScreen.storyboard */,
 				56A07E4D20B2F7F500B02DE2 /* Info.plist */,
@@ -268,6 +271,7 @@
 				56A07E4220B2F7F400B02DE2 /* AppDelegate.swift in Sources */,
 				56417A1E20B44E2800637A58 /* GroceryList.swift in Sources */,
 				56417A1A20B440BC00637A58 /* ListTableViewCell.swift in Sources */,
+				5640743B20B6E54A00DBA73D /* ItemTableViewCell.swift in Sources */,
 				56417A1C20B44DD900637A58 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
