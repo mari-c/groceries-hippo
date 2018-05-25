@@ -90,6 +90,13 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: Navigation
     
     // Configure view controller before presenting it
@@ -137,17 +144,17 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
     // MARK: Actions
     
     @IBAction func addItem(_ sender: UIButton) {
-        // TODO: implement addItem action
-        // Delete this after implementation:
-        // Open some sort of window with text field and quantity, add item to 'items' with button click, call insertCellItem() to display item info on the table view
-        
         performSegue(withIdentifier: "popAdd", sender: self)
     }
     
     @IBAction func deleteItem(_ sender: UIButton) {
-        // TODO: implement deleteItem action
-        // Delete this after implementation:
-        // Open the 'delete menu' (red selection), delete the corresponding item from 'items', call deleteItemCell() to remove the item cell from the table view
+        if sender.currentTitle == "Delete Item" {
+            tableView.isEditing = true
+            sender.setTitle("Done Deleting", for: .normal)
+        } else if sender.currentTitle == "Done Deleting" {
+            tableView.isEditing = false
+            sender.setTitle("Delete Item", for: .normal)
+        }
     }
     
     @IBAction func unwindToAddItemToList(sender: UIStoryboardSegue) {
@@ -171,15 +178,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     // Helper function to add given item to ItemTableViewCell
     private func insertItemCell() {
-        // TODO: implement insertItemCell
-        
         let indexPath = IndexPath(row: items.count - 1, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
-    }
-    
-    // Helper function to delete given item from ItemTableViewCell
-    private func deleteItemCell() {
-        // TODO: implement deleteItemCell
     }
     
     private func updateSaveButtonState() {

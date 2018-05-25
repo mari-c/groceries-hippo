@@ -193,10 +193,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qcB-lb-Xob">
-                                                            <rect key="frame" x="8" y="8" width="327" height="24"/>
+                                                            <rect key="frame" x="8" y="10" width="327" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbZ-Fl-CiL">
-                                                                    <rect key="frame" x="0.0" y="2" width="277" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="20.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="277" id="Ih4-Ey-Fbe"/>
                                                                     </constraints>
@@ -205,23 +205,17 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2w-KE-5uR">
-                                                                    <rect key="frame" x="285" y="2" width="42" height="20.5"/>
+                                                                    <rect key="frame" x="285" y="0.0" width="42" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="RbZ-Fl-CiL" firstAttribute="leading" secondItem="qcB-lb-Xob" secondAttribute="leading" id="16f-pc-xIp"/>
-                                                                <constraint firstAttribute="trailing" secondItem="o2w-KE-5uR" secondAttribute="trailing" id="qZU-0U-RQO"/>
-                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="qcB-lb-Xob" secondAttribute="bottom" constant="8" id="CbK-0s-Ve0"/>
-                                                        <constraint firstItem="qcB-lb-Xob" firstAttribute="top" secondItem="qfS-1d-6iG" secondAttribute="top" constant="8" id="YG9-fV-yhq"/>
-                                                        <constraint firstItem="qcB-lb-Xob" firstAttribute="leading" secondItem="qfS-1d-6iG" secondAttribute="leading" constant="8" id="YIv-7x-C4o"/>
-                                                        <constraint firstAttribute="trailing" secondItem="qcB-lb-Xob" secondAttribute="trailing" constant="8" id="gek-zM-qjl"/>
+                                                        <constraint firstItem="qcB-lb-Xob" firstAttribute="centerY" secondItem="qfS-1d-6iG" secondAttribute="centerY" id="Sd8-nf-2WN"/>
+                                                        <constraint firstItem="qcB-lb-Xob" firstAttribute="centerX" secondItem="qfS-1d-6iG" secondAttribute="centerX" id="UVL-Gd-rgi"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
