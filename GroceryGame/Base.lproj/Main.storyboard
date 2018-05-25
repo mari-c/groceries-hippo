@@ -100,11 +100,11 @@
                                                         <constraint firstAttribute="width" secondItem="X3S-Zh-hRn" secondAttribute="height" multiplier="1:1" id="14z-bg-47e"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33.5" id="cFa-wH-q22"/>
                                                     </constraints>
-                                                    <state key="normal" title="Edit Icon" image="EditIcon"/>
+                                                    <state key="normal" title="Edit Icon" image="editIcon"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMj-sR-KnZ">
                                                     <rect key="frame" x="41.5" y="0.0" width="33.5" height="33.5"/>
-                                                    <state key="normal" title="Delete Icon" image="milkCarton"/>
+                                                    <state key="normal" title="Delete Icon" image="trashcan"/>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -448,9 +448,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EditIcon" width="428" height="414"/>
+        <image name="editIcon" width="428" height="414"/>
         <image name="groceryStore" width="640" height="828"/>
-        <image name="milkCarton" width="329" height="399"/>
+        <image name="trashcan" width="344" height="367"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fgb-nt-EcQ"/>
