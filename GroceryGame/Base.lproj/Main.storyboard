@@ -293,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="3501.5999999999999" y="993.55322338830592"/>
         </scene>
-        <!--Add List View Controller-->
+        <!--Item Popover View Controller-->
         <scene sceneID="ff5-bv-IDK">
             <objects>
-                <viewController id="WgW-5f-iko" customClass="AddListViewController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popoverNewItem" id="WgW-5f-iko" customClass="ItemPopoverViewController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYX-JN-mcQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,7 +308,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0a3-X9-Viu">
                                         <rect key="frame" x="0.0" y="40" width="343" height="29"/>
@@ -328,7 +328,7 @@
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Jsj-7N-iPa">
                                                 <rect key="frame" x="249" y="0.0" width="94" height="29"/>
                                                 <connections>
-                                                    <action selector="stepperChanged:" destination="WgW-5f-iko" eventType="valueChanged" id="Adu-VQ-Geh"/>
+                                                    <action selector="stepperChanged:" destination="WgW-5f-iko" eventType="valueChanged" id="AoX-pp-LyZ"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
@@ -351,6 +351,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="WgW-5f-iko" eventType="touchUpInside" id="Zwg-GE-m2p"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTh-dT-60y">
                                         <rect key="frame" x="293" y="0.0" width="50" height="45"/>
@@ -362,6 +365,9 @@
                                         <state key="normal" title="Add">
                                             <color key="titleColor" red="0.0" green="0.47617390640000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="ntw-Im-HwR" kind="unwind" unwindAction="unwindToAddItemToListWithSender:" id="qrn-uR-Mw8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -383,12 +389,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I3V-ec-70J"/>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="375" height="400"/>
                     <connections>
-                        <outlet property="quantityStepper" destination="Jsj-7N-iPa" id="mhu-t9-vBQ"/>
-                        <outlet property="quantityTextField" destination="9nc-dn-uEf" id="12X-0n-bfx"/>
+                        <outlet property="nameTextField" destination="Swe-2S-eU5" id="fHh-Db-d1D"/>
+                        <outlet property="quantityStepper" destination="Jsj-7N-iPa" id="JZB-rU-H3q"/>
+                        <outlet property="quantityTextField" destination="9nc-dn-uEf" id="Sgg-SK-l9I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2b-vq-lRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ntw-Im-HwR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4365.6000000000004" y="993.55322338830592"/>
         </scene>

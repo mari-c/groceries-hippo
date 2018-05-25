@@ -9,17 +9,13 @@
 import UIKit
 import os.log
 
-class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
+class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Properties
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
-    // Popover window properties
-    @IBOutlet weak var quantityTextField: UITextField!
-    @IBOutlet weak var quantityStepper: UIStepper!
     
     var items: [GroceryList.GroceryItem] = []
     var list: GroceryList?
@@ -32,9 +28,6 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         
         // Handle text field user input through delegate callbacks
         nameTextField.delegate = self
-        
-        // Configure popover window stepper
-        quantityStepper.autorepeat = true
         
         // Set table view with grocery lists
         tableView.delegate = self
@@ -97,25 +90,22 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         return cell
     }
     
-    // MARK: UIPopoverPresentationControllerDelegate
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
     // MARK: Navigation
     
     // Configure view controller before presenting it
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
+        
         // Configure popover presentation
         if segue.identifier == "popAdd" {
             let dst = segue.destination
             if let pop = dst.popoverPresentationController {
-                pop.delegate = self
+                let popoverViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverNewItem") as! ItemPopoverViewController
+                pop.delegate = popoverViewController
             }
         }
+        
         
         // Configure the destination view controller only when save button is pressed
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
@@ -160,7 +150,11 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Open the 'delete menu' (red selection), delete the corresponding item from 'items', call deleteItemCell() to remove the item cell from the table view
     }
     
-    @IBAction func stepperChanged(_ sender: UIStepper) {
+    @IBAction func unwindToAddItemToList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ItemPopoverViewController, let item = sourceViewController.itemToAdd {
+            items.append(item)
+            insertItemCell()
+        }
     }
     
     // MARK: Private Methods
