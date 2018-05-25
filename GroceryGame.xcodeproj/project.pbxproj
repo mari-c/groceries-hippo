@@ -18,6 +18,8 @@
 		56A07E4920B2F7F500B02DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4820B2F7F500B02DE2 /* Assets.xcassets */; };
 		56A07E4C20B2F7F500B02DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4A20B2F7F500B02DE2 /* LaunchScreen.storyboard */; };
 		F41CB1C620B5367500C7D9F7 /* GroceryGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41CB1C520B5367500C7D9F7 /* GroceryGameTest.swift */; };
+		F4FEA73D20B81338009469D5 /* PlaystoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA73C20B81338009469D5 /* PlaystoryViewController.swift */; };
+		F4FEA73F20B8137B009469D5 /* playstory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FEA73E20B8137B009469D5 /* playstory.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		F41CB1C320B5367500C7D9F7 /* GroceryGameTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryGameTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41CB1C520B5367500C7D9F7 /* GroceryGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryGameTest.swift; sourceTree = "<group>"; };
 		F41CB1C720B5367500C7D9F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4FEA73C20B81338009469D5 /* PlaystoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaystoryViewController.swift; sourceTree = "<group>"; };
+		F4FEA73E20B8137B009469D5 /* playstory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = playstory.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				56417A1920B440BC00637A58 /* ListTableViewCell.swift */,
 				5640743A20B6E54A00DBA73D /* ItemTableViewCell.swift */,
 				56A07E4520B2F7F400B02DE2 /* Main.storyboard */,
+				F4FEA73E20B8137B009469D5 /* playstory.storyboard */,
+				F4FEA73C20B81338009469D5 /* PlaystoryViewController.swift */,
 				56A07E4820B2F7F500B02DE2 /* Assets.xcassets */,
 				56A07E4A20B2F7F500B02DE2 /* LaunchScreen.storyboard */,
 				56A07E4D20B2F7F500B02DE2 /* Info.plist */,
@@ -241,6 +247,7 @@
 			files = (
 				56A07E4C20B2F7F500B02DE2 /* LaunchScreen.storyboard in Resources */,
 				56A07E4920B2F7F500B02DE2 /* Assets.xcassets in Resources */,
+				F4FEA73F20B8137B009469D5 /* playstory.storyboard in Resources */,
 				56A07E4720B2F7F400B02DE2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +279,7 @@
 				56417A1E20B44E2800637A58 /* GroceryList.swift in Sources */,
 				56417A1A20B440BC00637A58 /* ListTableViewCell.swift in Sources */,
 				5640743B20B6E54A00DBA73D /* ItemTableViewCell.swift in Sources */,
+				F4FEA73D20B81338009469D5 /* PlaystoryViewController.swift in Sources */,
 				56417A1C20B44DD900637A58 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

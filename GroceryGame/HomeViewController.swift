@@ -19,7 +19,13 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func playSelected(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "playstory", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Playstory") as UIViewController
+        present(controller, animated: true, completion: nil)
+    }
+    
 
 }
 

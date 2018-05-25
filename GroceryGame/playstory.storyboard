@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Playstory View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="Playstory" id="BYZ-38-t0r" customClass="PlaystoryViewController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food selve" translatesAutoresizingMaskIntoConstraints="NO" id="smM-D7-oBI">
+                                <rect key="frame" x="0.0" y="27" width="375" height="611"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hippo body" translatesAutoresizingMaskIntoConstraints="NO" id="6z6-QT-wcT">
+                                <rect key="frame" x="10" y="462" width="176" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feet 1" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-ti-4Wq">
+                                <rect key="frame" x="145" y="562" width="84" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textbook1" translatesAutoresizingMaskIntoConstraints="NO" id="oli-1a-I0N">
+                                <rect key="frame" x="113" y="299" width="225" height="213"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left feet" translatesAutoresizingMaskIntoConstraints="NO" id="f6a-Hx-TVd">
+                                <rect key="frame" x="10" y="619" width="94" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hippofull" translatesAutoresizingMaskIntoConstraints="NO" id="dra-KU-u4x">
+                                <rect key="frame" x="10" y="462" width="176" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textbook2" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-Am-0TI">
+                                <rect key="frame" x="16" y="280" width="240" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="hippoBody" destination="6z6-QT-wcT" id="V0H-29-hfX"/>
+                        <outlet property="hippoFull" destination="dra-KU-u4x" id="FHP-Yz-BdE"/>
+                        <outlet property="leftFeet" destination="f6a-Hx-TVd" id="xog-0V-41o"/>
+                        <outlet property="rightFeet" destination="fqh-ti-4Wq" id="wRS-Id-Czp"/>
+                        <outlet property="textbook2" destination="Tpt-Am-0TI" id="Q5l-Fu-9oS"/>
+                        <outlet property="textbox1" destination="oli-1a-I0N" id="XQt-A1-swi"/>
+                        <outlet property="viewtap" destination="smM-D7-oBI" id="1Uc-T4-haa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="feet 1" width="153" height="152"/>
+        <image name="food selve" width="500" height="458"/>
+        <image name="hippo body" width="466" height="541"/>
+        <image name="hippofull" width="262" height="324"/>
+        <image name="left feet" width="220" height="155"/>
+        <image name="textbook1" width="563" height="516"/>
+        <image name="textbook2" width="660" height="574"/>
+    </resources>
+</document>
