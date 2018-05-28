@@ -45,7 +45,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eHb-ZX-YAg" kind="show" id="ImM-pg-o5e"/>
+                                            <segue destination="DmG-mm-3P9" kind="show" id="cx4-oz-FFr"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.2" y="132.68365817091455"/>
+            <point key="canvasLocation" x="2046" y="133"/>
         </scene>
         <!--Your Grocery Lists-->
         <scene sceneID="hcb-4P-qSt">
@@ -411,25 +411,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pPv-du-sIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="132.68365817091455"/>
-        </scene>
-        <!--List Navigation Controller-->
-        <scene sceneID="Mbo-Wz-wlk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eHb-ZX-YAg" userLabel="List Navigation Controller" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xfr-Um-eZi">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="DmG-mm-3P9" kind="relationship" relationship="rootViewController" id="YeF-AD-mol"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bg6-yD-wxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2141.5999999999999" y="132.68365817091455"/>
+            <point key="canvasLocation" x="977" y="133"/>
         </scene>
         <!--Add List Navigation Controller-->
         <scene sceneID="uaF-Y9-n1f">
@@ -456,6 +438,6 @@
         <image name="trashcan" width="344" height="367"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fgb-nt-EcQ"/>
+        <segue reference="WQs-7h-8rW"/>
     </inferredMetricsTieBreakers>
 </document>

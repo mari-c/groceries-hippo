@@ -36,7 +36,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         tableView.layer.borderWidth = 0.5
         tableView.layer.borderColor = UIColor.lightGray.cgColor
         
-        // TODO: Set up view if editing existing GroceryList
+        // TODO: TODO: Set up view if editing existing GroceryList
         
         
         // Enable the Save button only if text field has a valid GroceryList name
@@ -127,11 +127,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // TODO: fix cancel behaviour (problem with checking modal vs push)
-        
         // Dismiss this view controller depending on the style of presentation (modal or push)
         let isPresentingInNewListMode = presentingViewController is UINavigationController
-        
         if isPresentingInNewListMode {
             dismiss(animated: true, completion: nil)
         } else if let owningNavigationController = navigationController {
