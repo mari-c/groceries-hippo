@@ -13,6 +13,8 @@ class ListTableViewController: UITableViewController {
     
     // MARK: Properties
     
+    @IBOutlet weak var playButton: UIButton!
+    
     var lists = [GroceryList]()
 
     override func viewDidLoad() {
@@ -24,7 +26,7 @@ class ListTableViewController: UITableViewController {
         } else {
             loadSampleLists()
         }
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -54,20 +56,35 @@ class ListTableViewController: UITableViewController {
     // Configure cell to display at given row -- only asks for cells being displayed
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier
-        let cellIdentifier = "ListTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ListTableViewCell else {
-            fatalError("Dequeued cell is not an instance of ListTableViewCell")
+        if restorationIdentifier == "SelectPlaystoryList" {
+            // Displaying cells in the Playstory storyboard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            
+            // Fetch appropriate list
+            let list = lists[indexPath.row]
+            
+            // Configure the cell
+            cell.textLabel?.text = list.name
+            
+            return cell
+            
+        } else {
+            // Displaying cells in the Main storyboard
+            let cellIdentifier = "ListTableViewCell"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ListTableViewCell else {
+                fatalError("Dequeued cell is not an instance of ListTableViewCell")
+            }
+            
+            // Fetch appropriate list
+            let list = lists[indexPath.row]
+            
+            // Configure the cell
+            cell.nameLabel.text = list.name
+            cell.trashButton.tag = indexPath.row
+            cell.trashButton.addTarget(self, action: #selector(deleteSelectedGroceryList(_:)), for: .touchUpInside)
+            
+            return cell
         }
-        
-        // Fetch appropriate list
-        let list = lists[indexPath.row]
-
-        // Configure the cell
-        cell.nameLabel.text = list.name
-        cell.trashButton.tag = indexPath.row
-        cell.trashButton.addTarget(self, action: #selector(deleteSelectedGroceryList(_:)), for: .touchUpInside)
-
-        return cell
     }
 
     /*
@@ -129,6 +146,9 @@ class ListTableViewController: UITableViewController {
             
             let selectedList = lists[indexPath.row]
             listDetailViewController.list = selectedList
+        case "StartPlaystory":
+            navigationController?.setNavigationBarHidden(true, animated: false)
+            os_log("Starting game..", log: OSLog.default, type: .debug)
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "")")
         }
@@ -159,6 +179,9 @@ class ListTableViewController: UITableViewController {
         lists.remove(at: indPath.row)
         saveGroceryLists()
         tableView.deleteRows(at: [indPath], with: .fade)
+    }
+    
+    @IBAction func playStory(_ sender: UIButton) {
     }
     
     // MARK: Private Methods

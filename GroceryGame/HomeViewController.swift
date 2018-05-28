@@ -22,8 +22,11 @@ class HomeViewController: UIViewController {
     
     @IBAction func playSelected(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "playstory", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "Playstory") as UIViewController
-        present(controller, animated: true, completion: nil)
+        // let controller = storyboard.instantiateViewController(withIdentifier: "SelectPlaystoryList") as UIViewController
+        // present(controller, animated: true, completion: nil)
+        
+        let playstoryController = storyboard.instantiateViewController(withIdentifier: "SelectPlaystoryList")
+        navigationController?.pushViewController(playstoryController, animated: true)
     }
     
 
