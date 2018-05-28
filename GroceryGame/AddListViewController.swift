@@ -17,14 +17,11 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var items: [GroceryList.GroceryItem] = []
+    var items: [GroceryItem] = []
     var list: GroceryList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Load sample items
-        loadSampleItems()
         
         // Handle text field user input through delegate callbacks
         nameTextField.delegate = self
@@ -36,17 +33,26 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         tableView.layer.borderWidth = 0.5
         tableView.layer.borderColor = UIColor.lightGray.cgColor
         
-        // TODO: TODO: Set up view if editing existing GroceryList
+        // Set up view if editing existing GroceryList
+        if let list = list {
+            navigationItem.title = list.name
+            nameTextField.text = list.name
+            items = list.items
+        }
         
+        // Load sample items
+        // loadSampleItems()
         
         // Enable the Save button only if text field has a valid GroceryList name
         updateSaveButtonState()
     }
     
+    /*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    */
     
     // MARK: UITextFieldDelegate
     
@@ -80,12 +86,13 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
             fatalError("Dequeued cell is not an instance of ItemTableViewCell")
         }
         
-        // cell.textLabel?.text = self.items[indexPath.row].itemName
-        
         // Fetch corresponding item and configure the cell
         let item = items[indexPath.row]
         cell.nameLabel.text = item.itemName
         cell.quantityLabel.text = String(item.quantity)
+        
+        // Enable the Save button only if GroceryList has items
+        updateSaveButtonState()
         
         return cell
     }
@@ -164,14 +171,25 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
     // MARK: Private Methods
     
     private func loadSampleItems() {
-        let milk = GroceryList.GroceryItem(itemName: "Milk", image: UIImage(named: "milkCarton"), quantity: 1)
-        let eggs = GroceryList.GroceryItem(itemName: "Eggs", image: UIImage(named: "eggCarton"), quantity: 2)
-        let cereal = GroceryList.GroceryItem(itemName: "Cereal", image: UIImage(named: "cerealCarton"), quantity: 3)
+        let milk = GroceryItem(itemName: "Milk", image: UIImage(named: "milkCarton"), quantity: 1)
+        let eggs = GroceryItem(itemName: "Eggs", image: UIImage(named: "eggCarton"), quantity: 2)
+        let cereal = GroceryItem(itemName: "Cereal", image: UIImage(named: "cerealCarton"), quantity: 3)
         
         items.append(milk!)
         items.append(eggs!)
         items.append(cereal!)
     }
+    
+    /*
+    private func saveGroceryItems() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(items, toFile: GroceryItem.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Grocery items successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save grocery items.", log: OSLog.default, type: .error)
+        }
+    }
+    */
     
     // Helper function to add given item to ItemTableViewCell
     private func insertItemCell() {
@@ -182,7 +200,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
     private func updateSaveButtonState() {
         // Disable the Save button if text field is empty
         let text = nameTextField.text ?? ""
-        saveButton.isEnabled = !text.isEmpty
+        saveButton.isEnabled = !text.isEmpty && !items.isEmpty
     }
     
 }

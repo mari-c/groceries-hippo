@@ -16,7 +16,7 @@ class ItemPopoverViewController: UIViewController, UITextFieldDelegate, UIPopove
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var quantityStepper: UIStepper!
     
-    var itemToAdd: GroceryList.GroceryItem?
+    var itemToAdd: GroceryItem?
     
     // Text field tags
     var NAME_TF_TAG = 1
@@ -71,7 +71,7 @@ class ItemPopoverViewController: UIViewController, UITextFieldDelegate, UIPopove
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        itemToAdd = GroceryList.GroceryItem(itemName: nameTextField.text!, image: nil, quantity: Int(quantityTextField.text!)!)
+        itemToAdd = GroceryItem(itemName: nameTextField.text!, image: nil, quantity: Int(quantityTextField.text!)!)
         
         /*
         // Configure popover presentation

@@ -105,6 +105,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMj-sR-KnZ">
                                                     <rect key="frame" x="41.5" y="0.0" width="33.5" height="33.5"/>
                                                     <state key="normal" title="Delete Icon" image="trashcan"/>
+                                                    <connections>
+                                                        <action selector="deleteSelectedGroceryList:" destination="DmG-mm-3P9" eventType="touchUpInside" id="VtB-6N-Q7s"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -438,6 +441,6 @@
         <image name="trashcan" width="344" height="367"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WQs-7h-8rW"/>
+        <segue reference="Fgb-nt-EcQ"/>
     </inferredMetricsTieBreakers>
 </document>
