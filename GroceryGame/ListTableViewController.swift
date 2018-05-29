@@ -13,14 +13,20 @@ class ListTableViewController: UITableViewController {
     
     // MARK: Properties
     
+    @IBOutlet weak var playButton: UIButton!
+    
     var lists = [GroceryList]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load sample lists data
-        loadSampleLists()
-
+        // Load saved grocery lists, otherwise load sample lists data
+        if let savedLists = loadGroceryLists() {
+            lists += savedLists
+        } else {
+            loadSampleLists()
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,12 +34,14 @@ class ListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    /*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    */
 
-    // MARK: - Table view data source
+    // MARK: Table view data source
 
     // Specify how many sections to display in table view
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,18 +56,35 @@ class ListTableViewController: UITableViewController {
     // Configure cell to display at given row -- only asks for cells being displayed
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier
-        let cellIdentifier = "ListTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ListTableViewCell else {
-            fatalError("Dequeued cell is not an instance of ListTableViewCell")
+        if restorationIdentifier == "SelectPlaystoryList" {
+            // Displaying cells in the Playstory storyboard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            
+            // Fetch appropriate list
+            let list = lists[indexPath.row]
+            
+            // Configure the cell
+            cell.textLabel?.text = list.name
+            
+            return cell
+            
+        } else {
+            // Displaying cells in the Main storyboard
+            let cellIdentifier = "ListTableViewCell"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ListTableViewCell else {
+                fatalError("Dequeued cell is not an instance of ListTableViewCell")
+            }
+            
+            // Fetch appropriate list
+            let list = lists[indexPath.row]
+            
+            // Configure the cell
+            cell.nameLabel.text = list.name
+            cell.trashButton.tag = indexPath.row
+            cell.trashButton.addTarget(self, action: #selector(deleteSelectedGroceryList(_:)), for: .touchUpInside)
+            
+            return cell
         }
-        
-        // Fetch appropriate list
-        let list = lists[indexPath.row]
-
-        // Configure the cell
-        cell.nameLabel.text = list.name
-
-        return cell
     }
 
     /*
@@ -70,17 +95,17 @@ class ListTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            lists.remove(at: indexPath.row)
+            saveGroceryLists()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -121,6 +146,9 @@ class ListTableViewController: UITableViewController {
             
             let selectedList = lists[indexPath.row]
             listDetailViewController.list = selectedList
+        case "StartPlaystory":
+            navigationController?.setNavigationBarHidden(true, animated: false)
+            os_log("Starting game..", log: OSLog.default, type: .debug)
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "")")
         }
@@ -142,18 +170,28 @@ class ListTableViewController: UITableViewController {
             }
             
             // Save the grocery lists
-            // TODO: implement saveGroceryLists()
+            saveGroceryLists()
         }
+    }
+    
+    @IBAction func deleteSelectedGroceryList(_ sender: UIButton) {
+        let indPath = IndexPath(row: sender.tag, section: 0)
+        lists.remove(at: indPath.row)
+        saveGroceryLists()
+        tableView.deleteRows(at: [indPath], with: .fade)
+    }
+    
+    @IBAction func playStory(_ sender: UIButton) {
     }
     
     // MARK: Private Methods
     
     private func loadSampleLists() {
-        let milk1 = GroceryList.GroceryItem(itemName: "Milk", image: UIImage(named: "milkCarton"), quantity: 1)
-        let milk2 = GroceryList.GroceryItem(itemName: "Milk", image: UIImage(named: "milkCarton"), quantity: 2)
-        let eggs1 = GroceryList.GroceryItem(itemName: "Eggs", image: UIImage(named: "eggCarton"), quantity: 1)
-        let eggs2 = GroceryList.GroceryItem(itemName: "Eggs", image: UIImage(named: "eggCarton"), quantity: 2)
-        let cereal = GroceryList.GroceryItem(itemName: "Cereal", image: UIImage(named: "cerealCarton"), quantity: 3)
+        let milk1 = GroceryItem(itemName: "Milk", image: UIImage(named: "milkCarton"), quantity: 1)
+        let milk2 = GroceryItem(itemName: "Milk", image: UIImage(named: "milkCarton"), quantity: 2)
+        let eggs1 = GroceryItem(itemName: "Eggs", image: UIImage(named: "eggCarton"), quantity: 1)
+        let eggs2 = GroceryItem(itemName: "Eggs", image: UIImage(named: "eggCarton"), quantity: 2)
+        let cereal = GroceryItem(itemName: "Cereal", image: UIImage(named: "cerealCarton"), quantity: 3)
         
         guard let list1 = GroceryList(name: "Sample List 1", items: [milk2!]) else {
             fatalError("Unable to instantiate sample list 1")
@@ -166,6 +204,19 @@ class ListTableViewController: UITableViewController {
         }
         
         lists += [list1, list2, list3]
+    }
+    
+    private func saveGroceryLists() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(lists, toFile: GroceryList.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Grocery lists successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save grocery lists.", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadGroceryLists() -> [GroceryList]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: GroceryList.ArchiveURL.path) as? [GroceryList]
     }
 
 }
