@@ -82,6 +82,7 @@ class ListTableViewController: UITableViewController {
             cell.nameLabel.text = list.name
             cell.trashButton.tag = indexPath.row
             cell.trashButton.addTarget(self, action: #selector(deleteSelectedGroceryList(_:)), for: .touchUpInside)
+            cell.editButton.tag = indexPath.row
             
             return cell
         }
@@ -136,6 +137,7 @@ class ListTableViewController: UITableViewController {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             
+            /*
             guard let selectedListCell = sender as? ListTableViewCell else {
                 fatalError("Unexpected sender: \(sender ?? "")")
             }
@@ -143,6 +145,13 @@ class ListTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: selectedListCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
+            */
+            
+            guard let selectedListButton = sender as? UIButton else {
+                fatalError("Unexpected sender: \(sender ?? "")")
+            }
+            
+            let indexPath = IndexPath(row: selectedListButton.tag, section: 0)
             
             let selectedList = lists[indexPath.row]
             listDetailViewController.list = selectedList
@@ -182,6 +191,7 @@ class ListTableViewController: UITableViewController {
     }
     
     @IBAction func playStory(_ sender: UIButton) {
+        // TODO: TODO: get selected list and play story
     }
     
     // MARK: Private Methods
