@@ -13,9 +13,10 @@ class ListTableViewController: UITableViewController {
     
     // MARK: Properties
     
-    @IBOutlet weak var playButton: UIButton!
-    
     var lists = [GroceryList]()
+    
+    // Store selected list that will be used in Playstory
+    var selectedList: GroceryList?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,9 +104,12 @@ class ListTableViewController: UITableViewController {
             lists.remove(at: indexPath.row)
             saveGroceryLists()
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+        }
+        /*
+        else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        */
     }
 
     /*
@@ -122,6 +126,12 @@ class ListTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if restorationIdentifier == "SelectPlaystoryList" {
+            selectedList = GroceryList(name: lists[indexPath.row].name, items: lists[indexPath.row].items)
+        }
+    }
 
     // MARK: Navigation
 
@@ -157,6 +167,8 @@ class ListTableViewController: UITableViewController {
             listDetailViewController.list = selectedList
         case "StartPlaystory":
             navigationController?.setNavigationBarHidden(true, animated: false)
+            let playstoryController = segue.destination as! PlaystoryViewController
+            playstoryController.playList = selectedList!
             os_log("Starting game..", log: OSLog.default, type: .debug)
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "")")
@@ -188,10 +200,6 @@ class ListTableViewController: UITableViewController {
         lists.remove(at: indPath.row)
         saveGroceryLists()
         tableView.deleteRows(at: [indPath], with: .fade)
-    }
-    
-    @IBAction func playStory(_ sender: UIButton) {
-        // TODO: TODO: get selected list and play story
     }
     
     // MARK: Private Methods

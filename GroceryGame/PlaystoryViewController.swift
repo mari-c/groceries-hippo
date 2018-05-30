@@ -11,23 +11,25 @@ import UIKit
 class PlaystoryViewController: UIViewController {
 
     @IBOutlet weak var viewtap: UIImageView!
-    
     @IBOutlet weak var rightFeet: UIImageView!
-    
     @IBOutlet weak var leftFeet: UIImageView!
-    
     @IBOutlet weak var hippoBody: UIImageView!
-    
     @IBOutlet weak var textbox1: UIImageView!
-    
     @IBOutlet weak var hippoFull: UIImageView!
-    
     @IBOutlet weak var textbook2: UIImageView!
+    
+    @IBOutlet weak var listCounter: UITextField!
+    @IBOutlet weak var cartCounter: UITextField!
+    
+    // Store grocery list for current game
+    var playList: GroceryList?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //tap gestures
+        
+        listCounter.text = String(playList!.items.count)
+        
+        // Tap gestures
         
         viewtap.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.myviewTapped))

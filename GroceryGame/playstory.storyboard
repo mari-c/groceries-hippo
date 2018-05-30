@@ -93,24 +93,36 @@
                                 <rect key="frame" x="16" y="280" width="240" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="bFn-lW-W0d">
-                                <rect key="frame" x="10" y="75" width="50" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="bFn-lW-W0d">
+                                <rect key="frame" x="16" y="36" width="50" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Um2-aD-cES"/>
+                                    <constraint firstAttribute="height" constant="46" id="Zms-Sk-DCw"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carticon" translatesAutoresizingMaskIntoConstraints="NO" id="QdO-5x-izF">
-                                <rect key="frame" x="302" y="75" width="57" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carticon" translatesAutoresizingMaskIntoConstraints="NO" id="QdO-5x-izF">
+                                <rect key="frame" x="309" y="36" width="50" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="2Z7-rq-gtC"/>
+                                    <constraint firstAttribute="height" constant="46" id="dpH-Yd-BJe"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="aBd-z6-2uA">
-                                <rect key="frame" x="58" y="79" width="39" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="aBd-z6-2uA" userLabel="List Counter">
+                                <rect key="frame" x="74" y="40" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="7vp-Fv-I2A"/>
+                                    <constraint firstAttribute="width" constant="38" id="xG8-Qi-1Wn"/>
+                                </constraints>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="hd3-UB-mRq">
-                                <rect key="frame" x="265" y="79" width="38" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="hd3-UB-mRq" userLabel="Cart Counter">
+                                <rect key="frame" x="263" y="40" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="l6S-08-ZUY"/>
+                                    <constraint firstAttribute="width" constant="38" id="qik-v7-yPq"/>
+                                </constraints>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -118,12 +130,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="aBd-z6-2uA" firstAttribute="centerY" secondItem="bFn-lW-W0d" secondAttribute="centerY" id="2qP-9o-hZn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QdO-5x-izF" secondAttribute="trailing" constant="16" id="79v-V9-oXl"/>
+                            <constraint firstItem="aBd-z6-2uA" firstAttribute="leading" secondItem="bFn-lW-W0d" secondAttribute="trailing" constant="8" id="8M4-CO-HfD"/>
+                            <constraint firstItem="QdO-5x-izF" firstAttribute="leading" secondItem="hd3-UB-mRq" secondAttribute="trailing" constant="8" id="Ar2-MD-zay"/>
+                            <constraint firstItem="bFn-lW-W0d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="F8X-jR-Z7c"/>
+                            <constraint firstItem="hd3-UB-mRq" firstAttribute="centerY" secondItem="QdO-5x-izF" secondAttribute="centerY" id="KHj-gn-eEH"/>
+                            <constraint firstItem="bFn-lW-W0d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LUd-xF-e7y"/>
+                            <constraint firstItem="QdO-5x-izF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="fLb-JM-iMp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cartCounter" destination="hd3-UB-mRq" id="XBQ-5r-nvh"/>
                         <outlet property="hippoBody" destination="6z6-QT-wcT" id="V0H-29-hfX"/>
                         <outlet property="hippoFull" destination="dra-KU-u4x" id="FHP-Yz-BdE"/>
                         <outlet property="leftFeet" destination="f6a-Hx-TVd" id="xog-0V-41o"/>
+                        <outlet property="listCounter" destination="aBd-z6-2uA" id="xyE-iG-FOd"/>
                         <outlet property="rightFeet" destination="fqh-ti-4Wq" id="wRS-Id-Czp"/>
                         <outlet property="textbook2" destination="Tpt-Am-0TI" id="Q5l-Fu-9oS"/>
                         <outlet property="textbox1" destination="oli-1a-I0N" id="XQt-A1-swi"/>
