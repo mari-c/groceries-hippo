@@ -16,16 +16,22 @@ class ItemSearchViewController: UIViewController {
     @IBOutlet weak var cartCounter: UITextField!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemQuantity: UITextField!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     // Store grocery list for current game
     var playList: GroceryList?
+    
+    // Current position in the list of items; need to change implementation to randomize item order
+    var index = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         listCounter.text = String(playList!.items.count)
         
-        startPlaying()
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(nextItem))
+        view.addGestureRecognizer(tapGesture)
+        
     }
 
     /*
@@ -47,21 +53,10 @@ class ItemSearchViewController: UIViewController {
     
     // MARK: Private Methods
     
-    private func startPlaying() {
-        // Display next item and play animation presenting it
-        let items = playList?.items
-        
-        // Randomize items here
-        // ...
-        
-        var index = 1
-        for item in items! {
-            itemImage.image = item.image
-            itemQuantity.text = String(item.quantity)
-            presentItemAnimation(position: index)
-            // Wait for tap gesture... ???
-            index += 1
-        }
+    private func playItem(item: GroceryItem, index: Int) {
+        itemImage.image = item.image
+        itemQuantity.text = String(item.quantity)
+        presentItemAnimation(position: index)
     }
     
     // Helper function used to present each item with an animation
@@ -81,18 +76,29 @@ class ItemSearchViewController: UIViewController {
         let textboxView = UIImageView(frame: CGRect(x: 84, y: 379, width: 200, height: 100))
         textboxView.contentMode = .scaleAspectFill
         textboxView.image = textbox
-        
+ 
         view.addSubview(hippoView)
         view.addSubview(textboxView)
         view.addSubview(posLabel)
         
-        UIView.animate(withDuration: 3, delay: 5, animations: {
+        UIView.animate(withDuration: 1, delay: 3, animations: {
             hippoView.frame.origin.x += 900
         }, completion: {
             (finished) in
-            textboxView.isHidden = finished
-            posLabel.isHidden = finished
+            // textboxView.isHidden = finished
+            // posLabel.isHidden = finished
+            textboxView.removeFromSuperview()
+            posLabel.removeFromSuperview()
+            self.tapGesture.isEnabled = true
         })
+    }
+    
+    @objc private func nextItem() {
+        if index - 1 < (playList?.items.count)! {
+            tapGesture.isEnabled = false
+            playItem(item: (playList?.items[index - 1])!, index: index)
+            index += 1
+        }
     }
 
 }
