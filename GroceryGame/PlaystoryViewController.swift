@@ -9,6 +9,8 @@
 import UIKit
 
 class PlaystoryViewController: UIViewController {
+    
+    // MARK: Properties
 
     @IBOutlet weak var viewtap: UIImageView!
     @IBOutlet weak var rightFeet: UIImageView!
@@ -38,11 +40,12 @@ class PlaystoryViewController: UIViewController {
        
     }
 
+    /*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    */
     
     /*
     UIView.animate(withDuration: 0.2, animations: {
@@ -52,14 +55,17 @@ class PlaystoryViewController: UIViewController {
     })
  
      */
-    @objc func myviewTapped() {
+    
+    // MARK: Private Methods
+    
+    @objc private func myviewTapped() {
         UIView.animate(withDuration: 1, delay: 0, options: [.repeat], animations: {
             UIView.setAnimationRepeatCount(5)
             self.rightFeet.frame.origin.y -= 20
         }, completion: { (finished) in if (finished) { self.askForHelpAnimation() }})
     }
     
-    func askForHelpAnimation() {
+    private func askForHelpAnimation() {
         UIView.animate(withDuration: 2, delay: 0, options: [], animations: {
             self.rightFeet.isHidden = true
             self.leftFeet.isHidden = true
@@ -71,9 +77,10 @@ class PlaystoryViewController: UIViewController {
         }, completion: { (finished) in if (finished) { self.playToGetItems() }})
     }
     
-    func playToGetItems() {
-        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "getItemPage")
-        self.navigationController?.pushViewController(nextViewController!, animated: true)
+    private func playToGetItems() {
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "getItemPage") as! ItemSearchViewController
+        nextViewController.playList = playList
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
 }

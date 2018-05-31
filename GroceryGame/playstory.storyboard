@@ -167,38 +167,16 @@
             </objects>
             <point key="canvasLocation" x="-406" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Item Search View Controller-->
         <scene sceneID="YTp-91-jyJ">
             <objects>
-                <viewController storyboardIdentifier="getItemPage" id="Age-oq-SwW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="getItemPage" id="Age-oq-SwW" customClass="ItemSearchViewController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MXF-VN-VMn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-qg-C7Z">
-                                <rect key="frame" x="13" y="75" width="50" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carticon" translatesAutoresizingMaskIntoConstraints="NO" id="YU5-YM-Yh9">
-                                <rect key="frame" x="305" y="75" width="57" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-8b-6U8">
-                                <rect key="frame" x="61" y="79" width="39" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="X9U-OZ-M7H">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="X9U-OZ-M7H" userLabel="Item Quantity">
                                 <rect key="frame" x="164" y="460" width="39" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="Mfo-G5-IZX">
-                                <rect key="frame" x="268" y="79" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
@@ -216,10 +194,59 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-Gn-JbK">
+                                <rect key="frame" x="16" y="36" width="50" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Dt7-Yy-qLx"/>
+                                    <constraint firstAttribute="height" constant="46" id="gE8-2r-v0Q"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="Nb1-cc-a1D" userLabel="List Counter">
+                                <rect key="frame" x="74" y="40" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="Mj7-5E-IGj"/>
+                                    <constraint firstAttribute="height" constant="38" id="si0-bE-Imy"/>
+                                </constraints>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carticon" translatesAutoresizingMaskIntoConstraints="NO" id="MVX-LA-HuU">
+                                <rect key="frame" x="309" y="36" width="50" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="YiG-Ta-zfD"/>
+                                    <constraint firstAttribute="width" constant="50" id="fUu-5A-4iQ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="6O1-ej-Yoi" userLabel="Cart Counter">
+                                <rect key="frame" x="263" y="40" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="7WC-61-snc"/>
+                                    <constraint firstAttribute="width" constant="38" id="B1E-Qg-Zki"/>
+                                </constraints>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MVX-LA-HuU" firstAttribute="leading" secondItem="6O1-ej-Yoi" secondAttribute="trailing" constant="8" id="05P-pp-pgM"/>
+                            <constraint firstItem="Q6w-Gn-JbK" firstAttribute="leading" secondItem="6zc-q4-iuo" secondAttribute="leading" constant="16" id="5k5-fS-Tdm"/>
+                            <constraint firstItem="MVX-LA-HuU" firstAttribute="top" secondItem="6zc-q4-iuo" secondAttribute="top" constant="16" id="7QW-WU-6OP"/>
+                            <constraint firstItem="6zc-q4-iuo" firstAttribute="trailing" secondItem="MVX-LA-HuU" secondAttribute="trailing" constant="16" id="I4t-d5-6aw"/>
+                            <constraint firstItem="Nb1-cc-a1D" firstAttribute="centerY" secondItem="Q6w-Gn-JbK" secondAttribute="centerY" id="Rlz-fh-ItT"/>
+                            <constraint firstItem="6O1-ej-Yoi" firstAttribute="centerY" secondItem="MVX-LA-HuU" secondAttribute="centerY" id="WeA-jm-SrJ"/>
+                            <constraint firstItem="Q6w-Gn-JbK" firstAttribute="top" secondItem="6zc-q4-iuo" secondAttribute="top" constant="16" id="rgA-ZX-Awx"/>
+                            <constraint firstItem="Nb1-cc-a1D" firstAttribute="leading" secondItem="Q6w-Gn-JbK" secondAttribute="trailing" constant="8" id="w2E-HN-Pxe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6zc-q4-iuo"/>
                     </view>
+                    <connections>
+                        <outlet property="cartCounter" destination="6O1-ej-Yoi" id="Fem-1y-UB5"/>
+                        <outlet property="itemImage" destination="Fpa-EM-WPf" id="W1V-aO-tz5"/>
+                        <outlet property="listCounter" destination="Nb1-cc-a1D" id="klZ-E5-Lcs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRI-rz-PZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
