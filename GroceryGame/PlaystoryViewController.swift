@@ -24,17 +24,17 @@ class PlaystoryViewController: UIViewController {
     // Store grocery list for current game
     var playList: GroceryList?
     
+    var tapGesture: UITapGestureRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         listCounter.text = String(playList!.items.count)
         
         // Tap gestures
-        
         viewtap.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.myviewTapped))
-        
-        viewtap.addGestureRecognizer(tapGesture)
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(myviewTapped))
+        viewtap.addGestureRecognizer(tapGesture!)
        
     }
 
@@ -51,26 +51,30 @@ class PlaystoryViewController: UIViewController {
     <#code#>
     })
  
- */
+     */
     @objc func myviewTapped() {
- 
         UIView.animate(withDuration: 1, delay: 0, options: [.repeat], animations: {
+            UIView.setAnimationRepeatCount(5)
             self.rightFeet.frame.origin.y -= 20
-        },completion: { (finished) in
-            if (!finished){UIView.animate(withDuration: 2, delay: 0, options: [], animations: {
-                self.rightFeet.isHidden = true
-                self.leftFeet.isHidden = true
-                self.hippoBody.isHidden = true
-                self.textbox1.isHidden = true
-                self.hippoFull.isHidden = false
-                self.hippoFull.frame.origin.x += 200
-                self.textbook2.isHidden = false
-            })
-        }
-            
-    })
-     
-}
-
+        }, completion: { (finished) in if (finished) { self.askForHelpAnimation() }})
+    }
+    
+    func askForHelpAnimation() {
+        UIView.animate(withDuration: 2, delay: 0, options: [], animations: {
+            self.rightFeet.isHidden = true
+            self.leftFeet.isHidden = true
+            self.hippoBody.isHidden = true
+            self.textbox1.isHidden = true
+            self.hippoFull.isHidden = false
+            self.hippoFull.frame.origin.x += 200
+            self.textbook2.isHidden = false
+        }, completion: { (finished) in if (finished) { self.playToGetItems() }})
+    }
+    
+    func playToGetItems() {
+        let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "getItemPage")
+        self.navigationController?.pushViewController(nextViewController!, animated: true)
+    }
+    
 }
 
