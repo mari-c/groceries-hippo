@@ -60,7 +60,7 @@ class PlaystoryViewController: UIViewController {
     
     @objc private func myviewTapped() {
         UIView.animate(withDuration: 1, delay: 0, options: [.repeat], animations: {
-            UIView.setAnimationRepeatCount(5)
+            UIView.setAnimationRepeatCount(2)
             self.rightFeet.frame.origin.y -= 20
         }, completion: { (finished) in if (finished) { self.askForHelpAnimation() }})
     }
