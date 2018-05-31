@@ -225,6 +225,27 @@
             </objects>
             <point key="canvasLocation" x="380" y="134"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="6tu-ow-C7r">
+            <objects>
+                <viewController id="51L-1J-Y5e" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OaT-Tz-ZRa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hippofull" translatesAutoresizingMaskIntoConstraints="NO" id="zDM-0b-Tg7">
+                                <rect key="frame" x="4" y="462" width="176" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tLg-4r-FwN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNl-Ke-GnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093.5999999999999" y="133.5832083958021"/>
+        </scene>
     </scenes>
     <resources>
         <image name="carticon" width="954" height="809"/>
