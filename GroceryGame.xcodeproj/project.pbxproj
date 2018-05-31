@@ -21,6 +21,8 @@
 		56A07E4920B2F7F500B02DE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4820B2F7F500B02DE2 /* Assets.xcassets */; };
 		56A07E4C20B2F7F500B02DE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A07E4A20B2F7F500B02DE2 /* LaunchScreen.storyboard */; };
 		F41CB1C620B5367500C7D9F7 /* GroceryGameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41CB1C520B5367500C7D9F7 /* GroceryGameTest.swift */; };
+		F4A422B220C02253003E59D4 /* exerciseGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A422B120C02253003E59D4 /* exerciseGameController.swift */; };
+		F4A422B620C02D79003E59D4 /* ProjectTextFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4A422B520C02D79003E59D4 /* ProjectTextFile.txt */; };
 		F4FEA73D20B81338009469D5 /* PlaystoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FEA73C20B81338009469D5 /* PlaystoryViewController.swift */; };
 		F4FEA73F20B8137B009469D5 /* playstory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4FEA73E20B8137B009469D5 /* playstory.storyboard */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		F41CB1C320B5367500C7D9F7 /* GroceryGameTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryGameTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41CB1C520B5367500C7D9F7 /* GroceryGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryGameTest.swift; sourceTree = "<group>"; };
 		F41CB1C720B5367500C7D9F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4A422B120C02253003E59D4 /* exerciseGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseGameController.swift; sourceTree = "<group>"; };
+		F4A422B520C02D79003E59D4 /* ProjectTextFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ProjectTextFile.txt; path = Assets.xcassets/ProjectTextFile.txt; sourceTree = "<group>"; };
 		F4FEA73C20B81338009469D5 /* PlaystoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaystoryViewController.swift; sourceTree = "<group>"; };
 		F4FEA73E20B8137B009469D5 /* playstory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = playstory.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +124,7 @@
 				56417A1B20B44DD900637A58 /* ListTableViewController.swift */,
 				F4FEA73C20B81338009469D5 /* PlaystoryViewController.swift */,
 				5688B46120BFFFB400F8D022 /* ItemSearchViewController.swift */,
+				F4A422B120C02253003E59D4 /* exerciseGameController.swift */,
 				56417A1D20B44E2800637A58 /* GroceryList.swift */,
 				56499E2A20BC186C009D2B30 /* GroceryItem.swift */,
 				56417A1920B440BC00637A58 /* ListTableViewCell.swift */,
@@ -129,6 +134,7 @@
 				56A07E4820B2F7F500B02DE2 /* Assets.xcassets */,
 				56A07E4A20B2F7F500B02DE2 /* LaunchScreen.storyboard */,
 				56A07E4D20B2F7F500B02DE2 /* Info.plist */,
+				F4A422B520C02D79003E59D4 /* ProjectTextFile.txt */,
 			);
 			path = GroceryGame;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A07E4C20B2F7F500B02DE2 /* LaunchScreen.storyboard in Resources */,
+				F4A422B620C02D79003E59D4 /* ProjectTextFile.txt in Resources */,
 				56A07E4920B2F7F500B02DE2 /* Assets.xcassets in Resources */,
 				F4FEA73F20B8137B009469D5 /* playstory.storyboard in Resources */,
 				56A07E4720B2F7F400B02DE2 /* Main.storyboard in Resources */,
@@ -287,6 +294,7 @@
 				5688B46220BFFFB400F8D022 /* ItemSearchViewController.swift in Sources */,
 				56A07E4220B2F7F400B02DE2 /* AppDelegate.swift in Sources */,
 				563F8B5B20B8328500E7F83B /* ItemPopoverViewController.swift in Sources */,
+				F4A422B220C02253003E59D4 /* exerciseGameController.swift in Sources */,
 				56417A1E20B44E2800637A58 /* GroceryList.swift in Sources */,
 				56417A1A20B440BC00637A58 /* ListTableViewCell.swift in Sources */,
 				5640743B20B6E54A00DBA73D /* ItemTableViewCell.swift in Sources */,

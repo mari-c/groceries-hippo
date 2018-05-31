@@ -255,10 +255,10 @@
             </objects>
             <point key="canvasLocation" x="402" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Exercise Game Controller-->
         <scene sceneID="6tu-ow-C7r">
             <objects>
-                <viewController id="51L-1J-Y5e" sceneMemberID="viewController">
+                <viewController id="51L-1J-Y5e" customClass="exerciseGameController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OaT-Tz-ZRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,14 +267,28 @@
                                 <rect key="frame" x="4" y="462" width="176" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textbook3" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-AO-Hnf">
+                                <rect key="frame" x="37" y="159" width="322" height="295"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avk-ZN-YfC">
+                                <rect key="frame" x="71" y="192" width="237" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tLg-4r-FwN"/>
                     </view>
+                    <connections>
+                        <outlet property="mylabel" destination="avk-ZN-YfC" id="rdw-qd-NVl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNl-Ke-GnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="134"/>
+            <point key="canvasLocation" x="1212" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
@@ -288,5 +302,6 @@
         <image name="listicon" width="653" height="627"/>
         <image name="textbook1" width="563" height="516"/>
         <image name="textbook2" width="660" height="574"/>
+        <image name="textbook3" width="561" height="536"/>
     </resources>
 </document>
