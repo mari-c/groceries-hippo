@@ -21,6 +21,8 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        
         // Load saved grocery lists, otherwise load sample lists data
         if let savedLists = loadGroceryLists() {
             lists += savedLists
