@@ -198,7 +198,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="51L-1J-Y5e" kind="show" id="pYg-T3-I8l"/>
+                                    <segue destination="51L-1J-Y5e" kind="show" identifier="startExercise" id="pYg-T3-I8l"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-Gn-JbK">
@@ -296,27 +296,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8l-T6-Vof">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8l-T6-Vof" userLabel="Complete Exercise">
                                 <rect key="frame" x="253" y="536" width="72" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="51L-1J-Y5e" eventType="touchUpInside" id="SNd-Oy-MJH"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tLg-4r-FwN"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="M8l-T6-Vof" id="9Ar-5e-9g3"/>
                         <outlet property="mylabel" destination="avk-ZN-YfC" id="rdw-qd-NVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNl-Ke-GnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1527" y="134"/>
         </scene>
     </scenes>
     <resources>

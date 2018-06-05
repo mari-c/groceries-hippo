@@ -14,7 +14,7 @@ class exerciseGameController: UIViewController {
     var index = 0
     var myStrings = [String]()
     
-    @IBOutlet weak var button: UIButton!
+    //@IBOutlet weak var button: UIButton!
     
     
     override func viewDidLoad() {
@@ -62,11 +62,13 @@ class exerciseGameController: UIViewController {
         print(index)
     }
     
-    
+    /*
     @IBAction func buttonPressed(_ sender: UIButton) {
         displayText()
     }
     
+    */
     
+   
 
 }
