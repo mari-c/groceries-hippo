@@ -296,11 +296,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8l-T6-Vof">
+                                <rect key="frame" x="253" y="536" width="72" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="51L-1J-Y5e" eventType="touchUpInside" id="SNd-Oy-MJH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="tLg-4r-FwN"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="M8l-T6-Vof" id="9Ar-5e-9g3"/>
                         <outlet property="mylabel" destination="avk-ZN-YfC" id="rdw-qd-NVl"/>
                     </connections>
                 </viewController>
