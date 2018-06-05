@@ -55,11 +55,18 @@ class exerciseGameController: UIViewController {
     
     
     func displayText(){
+        /*
         print(myStrings)
         mylabel.text = self.myStrings [index]
         print(index)
         index = index + 1
         print(index)
+         */
+        
+        let ind = Int(arc4random_uniform(UInt32(myStrings.count)))
+        print(myStrings)
+        mylabel.text = self.myStrings[ind]
+        print(ind)
     }
     
     /*

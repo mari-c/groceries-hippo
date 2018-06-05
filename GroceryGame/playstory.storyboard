@@ -308,6 +308,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="DHU-To-KGp" kind="unwind" unwindAction="unwindToItemSearchWithSender:" id="Hze-fx-WFS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -318,6 +321,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNl-Ke-GnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DHU-To-KGp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1527" y="134"/>
         </scene>
