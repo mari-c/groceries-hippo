@@ -168,7 +168,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-406" y="134"/>
+            <point key="canvasLocation" x="-294" y="134"/>
         </scene>
         <!--Item Search View Controller-->
         <scene sceneID="YTp-91-jyJ">
@@ -281,7 +281,7 @@
                 <tapGestureRecognizer id="IOh-UK-WMk"/>
                 <tapGestureRecognizer id="d2K-aa-NuP"/>
             </objects>
-            <point key="canvasLocation" x="400.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="620" y="134"/>
         </scene>
         <!--Exercise Game Controller-->
         <scene sceneID="6tu-ow-C7r">

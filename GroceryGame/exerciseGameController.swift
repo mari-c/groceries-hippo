@@ -10,32 +10,35 @@ import UIKit
 
 class exerciseGameController: UIViewController {
 
+    // MARK: Properties
+    
     @IBOutlet weak var mylabel: UILabel!
     var index = 0
     var myStrings = [String]()
     
-    //@IBOutlet weak var button: UIButton!
-    
+    // @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        //print(self.label2.text)
-       // mylabel.text = "hello"
-        
+        // print(self.label2.text)
+        // mylabel.text = "hello"
 
         loadText()
-        displayText()
+        let ind = displayText()
+        requestTask(index: ind)
     }
 
+    /*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    */
     
+    // MARK: Private Methods
     
-    func loadText(){
+    private func loadText() {
         // File location
         let fileURLProject = Bundle.main.path(forResource: "ProjectTextFile", ofType: "txt")
         // Read from the file
@@ -51,10 +54,7 @@ class exerciseGameController: UIViewController {
         
     }
     
-    
-    
-    
-    func displayText(){
+    private func displayText() -> Int {
         /*
         print(myStrings)
         mylabel.text = self.myStrings [index]
@@ -63,10 +63,24 @@ class exerciseGameController: UIViewController {
         print(index)
          */
         
-        let ind = Int(arc4random_uniform(UInt32(myStrings.count)))
-        print(myStrings)
-        mylabel.text = self.myStrings[ind]
+        let ind = Int(arc4random_uniform(UInt32(myStrings.count - 1)))
+        // print(myStrings)
+        mylabel.text = myStrings[ind]
         print(ind)
+        return ind
+    }
+    
+    private func requestTask(index: Int) {
+        switch index {
+        case 0:
+            // Reach high
+            print("Reach high")
+        case 1:
+            // Shake
+            print("Shake")
+        default:
+            fatalError("Task index does not exist. Task could not be requested.")
+        }
     }
     
     /*
@@ -76,6 +90,4 @@ class exerciseGameController: UIViewController {
     
     */
     
-   
-
 }
