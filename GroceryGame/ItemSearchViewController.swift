@@ -27,17 +27,24 @@ class ItemSearchViewController: UIViewController {
     // Current position in the list of items; need to change implementation to randomize item order
     var index = 1
     
+    var touchLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         listCounter.text = String(playList!.items.count)
         
-        tapNextItem = UITapGestureRecognizer(target: self, action: #selector(nextItem))
+        tapNextItem = UITapGestureRecognizer(target: self, action: #selector(playGame))
         view.addGestureRecognizer(tapNextItem)
         
         itemQuantity.isHidden = true
         finishedButton.isHidden = true
         
+        touchLabel.text = "Touch the screen to start"
+        touchLabel.textColor = .lightGray
+        touchLabel.sizeToFit()
+        touchLabel.center = view.center
+        view.addSubview(touchLabel)
     }
 
     /*
@@ -48,7 +55,7 @@ class ItemSearchViewController: UIViewController {
     */
 
     /*
-    // MARK: - Navigation
+    // MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,23 +67,31 @@ class ItemSearchViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func unwindToItemSearch(sender: UIStoryboardSegue) {
-        /*
-        if let sourceViewController = sender.source as? exerciseGameController {
-            // sourceViewController.displayText()
+        if index > (playList?.items.count)! {
+            // Finish game
+            itemImage.isHidden = true
+            itemQuantity.isHidden = true
+            finishedButton.isHidden = true
+            listCounter.text = String(Int(listCounter.text!)! - 1)
+            cartCounter.text = String(Int(cartCounter.text!)! + 1)
+            endGameScreen()
+            
+            tapEndGame = UITapGestureRecognizer(target: self, action: #selector(endGame))
+            view.addGestureRecognizer(tapEndGame)
+        } else {
+            // List to cart
+            listCounter.text = String(Int(listCounter.text!)! - 1)
+            cartCounter.text = String(Int(cartCounter.text!)! + 1)
+            playGame()
         }
-         */
     }
     
     // MARK: Private Methods
     
-    private func playItem(item: GroceryItem, index: Int) {
-        itemImage.image = item.image
-        itemQuantity.text = String(item.quantity)
-        presentItemAnimation(position: index)
-    }
-    
     // Helper function used to present each item with character animation
-    private func presentItemAnimation(position: Int) {
+    private func presentItemAnimation() {
+        finishedButton.isHidden = true
+        
         let hippo = UIImage(named: "hippofull")
         let textbox = UIImage(named: "emptyTextboxLeft")
         let posLabel = UILabel(frame: CGRect(x: 93, y: 370, width: 180, height: 90))
@@ -84,7 +99,7 @@ class ItemSearchViewController: UIViewController {
         posLabel.textAlignment = .center
         let nf = NumberFormatter()
         nf.numberStyle = .ordinal
-        posLabel.text = "Your \(nf.string(from: position as NSNumber) ?? "") item is..."
+        posLabel.text = "Your \(nf.string(from: index as NSNumber) ?? "") item is..."
         
         let hippoView = UIImageView(frame: CGRect(x: 16, y: 520, width: 120, height: 120))
         hippoView.contentMode = .scaleAspectFill
@@ -101,16 +116,14 @@ class ItemSearchViewController: UIViewController {
             hippoView.frame.origin.x += 900
         }, completion: {
             (finished) in
-            // textboxView.isHidden = finished
-            // posLabel.isHidden = finished
             textboxView.removeFromSuperview()
             posLabel.removeFromSuperview()
-            self.tapNextItem.isEnabled = true
+            self.finishedButton.isHidden = false
         })
     }
     
-    // Helper function used to finish game with character animation
-    private func endGameAnimation() {
+    // Helper function used to finish game with character screen
+    private func endGameScreen() {
         let hippo = UIImage(named: "hippofull")
         let textbox = UIImage(named: "textbook3")
         
@@ -143,31 +156,61 @@ class ItemSearchViewController: UIViewController {
         textboxView.contentMode = .scaleAspectFill
         textboxView.image = textbox
     }
+
+    // Request each item on the list
+    @objc private func playGame() {
+        touchLabel.isHidden = true
+        tapNextItem.isEnabled = false
+        
+        let i = index - 1
+        let item = (playList?.items[i])!
+        if i < (playList?.items.count)! {
+            itemQuantity.isHidden = false
+            finishedButton.isHidden = false
+            // playItem(item: (playList?.items[i])!, index: index)
+            itemImage.image = item.image
+            itemQuantity.text = String(item.quantity)
+            presentItemAnimation()
+            index += 1
+        }
+    }
+    
+    // Go to home screen when exiting Play mode
+    @objc private func endGame() {
+        let playstoryController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
+        navigationController?.pushViewController(playstoryController, animated: true)
+    }
+    
+    /*
+    // The following 2 functions were used to test Play mode flow with tap gesture.
+    // Delete them once all the functionality is complete (and working ok)...
+     
+    private func playItem(item: GroceryItem, index: Int) {
+        itemImage.image = item.image
+        itemQuantity.text = String(item.quantity)
+        presentItemAnimation(position: index)
+    }
     
     @objc private func nextItem() {
+        touchLabel.isHidden = true
+        tapNextItem.isEnabled = false
+        
         if index - 1 < (playList?.items.count)! {
-            tapNextItem.isEnabled = false
             itemQuantity.isHidden = false
             finishedButton.isHidden = false
             playItem(item: (playList?.items[index - 1])!, index: index)
             index += 1
         } else if index > (playList?.items.count)! {
             // Finish game
-            tapNextItem.isEnabled = false
-            
             itemImage.isHidden = true
             itemQuantity.isHidden = true
             finishedButton.isHidden = true
-            endGameAnimation()
+            endGameScreen()
             
             tapEndGame = UITapGestureRecognizer(target: self, action: #selector(endGame))
             view.addGestureRecognizer(tapEndGame)
         }
     }
+    */
     
-    @objc private func endGame() {
-        let playstoryController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
-        navigationController?.pushViewController(playstoryController, animated: true)
-    }
-
 }

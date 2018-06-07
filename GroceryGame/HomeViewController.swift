@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // hide back button
+        navigationItem.hidesBackButton = true
     }
 
     override func didReceiveMemoryWarning() {
