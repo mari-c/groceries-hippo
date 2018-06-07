@@ -13,6 +13,8 @@ class ListTableViewController: UITableViewController {
     
     // MARK: Properties
     
+    @IBOutlet weak var playButton: UIButton!
+    
     var lists = [GroceryList]()
     
     // Store selected list that will be used in Playstory
@@ -28,6 +30,11 @@ class ListTableViewController: UITableViewController {
             lists += savedLists
         } else {
             loadSampleLists()
+        }
+        
+        // Enable the Play button only if a cell is selected
+        if playButton != nil {
+            playButton.isEnabled = false
         }
         
         // Uncomment the following line to preserve selection between presentations
@@ -86,6 +93,7 @@ class ListTableViewController: UITableViewController {
             cell.trashButton.tag = indexPath.row
             cell.trashButton.addTarget(self, action: #selector(deleteSelectedGroceryList(_:)), for: .touchUpInside)
             cell.editButton.tag = indexPath.row
+            cell.selectionStyle = .none
             
             return cell
         }
@@ -113,25 +121,11 @@ class ListTableViewController: UITableViewController {
         }
         */
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if restorationIdentifier == "SelectPlaystoryList" {
             selectedList = GroceryList(name: lists[indexPath.row].name, items: lists[indexPath.row].items)
+            playButton.isEnabled = true
         }
     }
 
@@ -148,25 +142,15 @@ class ListTableViewController: UITableViewController {
             guard let listDetailViewController = segue.destination as? AddListViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
-            
-            /*
-            guard let selectedListCell = sender as? ListTableViewCell else {
-                fatalError("Unexpected sender: \(sender ?? "")")
-            }
-            
-            guard let indexPath = tableView.indexPath(for: selectedListCell) else {
-                fatalError("The selected cell is not being displayed by the table")
-            }
-            */
-            
             guard let selectedListButton = sender as? UIButton else {
                 fatalError("Unexpected sender: \(sender ?? "")")
             }
-            
             let indexPath = IndexPath(row: selectedListButton.tag, section: 0)
-            
             let selectedList = lists[indexPath.row]
             listDetailViewController.list = selectedList
+            
+            // Set row to edit as selected
+           tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         case "StartPlaystory":
             navigationController?.setNavigationBarHidden(true, animated: false)
             let playstoryController = segue.destination as! PlaystoryViewController
