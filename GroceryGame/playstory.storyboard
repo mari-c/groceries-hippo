@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -299,20 +298,29 @@
                                 <rect key="frame" x="37" y="159" width="322" height="295"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avk-ZN-YfC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avk-ZN-YfC">
                                 <rect key="frame" x="71" y="192" width="237" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8l-T6-Vof" userLabel="Complete Exercise">
-                                <rect key="frame" x="253" y="536" width="72" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8l-T6-Vof">
+                                <rect key="frame" x="243" y="549" width="65" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Done!"/>
                                 <connections>
                                     <segue destination="DHU-To-KGp" kind="unwind" unwindAction="unwindToItemSearchWithSender:" id="Hze-fx-WFS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb0-Qt-M8D">
+                                <rect key="frame" x="237" y="502" width="77" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="countSteps:" destination="51L-1J-Y5e" eventType="touchUpInside" id="Ts1-6N-wJC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -320,13 +328,15 @@
                         <viewLayoutGuide key="safeArea" id="tLg-4r-FwN"/>
                     </view>
                     <connections>
-                        <outlet property="mylabel" destination="avk-ZN-YfC" id="rdw-qd-NVl"/>
+                        <outlet property="startButton" destination="Jb0-Qt-M8D" id="qNK-ou-myQ"/>
+                        <outlet property="taskButton" destination="M8l-T6-Vof" id="H3Q-AB-KFX"/>
+                        <outlet property="taskLabel" destination="avk-ZN-YfC" id="rdw-qd-NVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNl-Ke-GnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DHU-To-KGp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1527" y="134"/>
+            <point key="canvasLocation" x="1525.5999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
