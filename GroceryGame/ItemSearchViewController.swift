@@ -20,7 +20,6 @@ class ItemSearchViewController: UIViewController {
     @IBOutlet var tapNextItem: UITapGestureRecognizer!
     @IBOutlet var tapEndGame: UITapGestureRecognizer!
     
-    
     // Store grocery list for current game
     var playList: GroceryList?
     
@@ -79,7 +78,7 @@ class ItemSearchViewController: UIViewController {
             tapEndGame = UITapGestureRecognizer(target: self, action: #selector(endGame))
             view.addGestureRecognizer(tapEndGame)
         } else {
-            // List to cart
+            // Move item from list to cart
             listCounter.text = String(Int(listCounter.text!)! - 1)
             cartCounter.text = String(Int(cartCounter.text!)! + 1)
             playGame()
@@ -90,16 +89,18 @@ class ItemSearchViewController: UIViewController {
     
     // Helper function used to present each item with character animation
     private func presentItemAnimation() {
+        itemImage.isHidden = true
+        itemQuantity.isHidden = true
         finishedButton.isHidden = true
         
         let hippo = UIImage(named: "hippofull")
         let textbox = UIImage(named: "emptyTextboxLeft")
-        let posLabel = UILabel(frame: CGRect(x: 93, y: 370, width: 180, height: 90))
+        let presentingLabel = UILabel(frame: CGRect(x: 93, y: 370, width: 180, height: 90))
         
-        posLabel.textAlignment = .center
+        presentingLabel.textAlignment = .center
         let nf = NumberFormatter()
         nf.numberStyle = .ordinal
-        posLabel.text = "Your \(nf.string(from: index as NSNumber) ?? "") item is..."
+        presentingLabel.text = "Your \(nf.string(from: index as NSNumber) ?? "") item is..."
         
         let hippoView = UIImageView(frame: CGRect(x: 16, y: 520, width: 120, height: 120))
         hippoView.contentMode = .scaleAspectFill
@@ -110,14 +111,18 @@ class ItemSearchViewController: UIViewController {
  
         view.addSubview(hippoView)
         view.addSubview(textboxView)
-        view.addSubview(posLabel)
+        view.addSubview(presentingLabel)
         
-        UIView.animate(withDuration: 1, delay: 3, animations: {
+        UIView.animate(withDuration: 1, delay: 2, options: [.curveEaseIn], animations: {
+            textboxView.alpha = 0
+            presentingLabel.alpha = 0
             hippoView.frame.origin.x += 900
-        }, completion: {
-            (finished) in
+        }, completion: { _ in
             textboxView.removeFromSuperview()
-            posLabel.removeFromSuperview()
+            presentingLabel.removeFromSuperview()
+            hippoView.removeFromSuperview()
+            self.itemImage.isHidden = false
+            self.itemQuantity.isHidden = false
             self.finishedButton.isHidden = false
         })
     }
@@ -134,28 +139,33 @@ class ItemSearchViewController: UIViewController {
         textboxView.contentMode = .scaleAspectFill
         textboxView.image = textbox
         
-        let posLabel = UILabel(frame: CGRect(x: 93, y: 365, width: 180, height: 90))
-        posLabel.textAlignment = .center
-        posLabel.numberOfLines = 3
-        posLabel.text = "Great job! \n You found all the items!"
+        let endingLabel = UILabel()
+        endingLabel.textAlignment = .center
+        endingLabel.numberOfLines = 3
+        endingLabel.text = "Great job! \n You found all the items!"
         
         view.addSubview(hippoView)
         view.addSubview(textboxView)
-        view.addSubview(posLabel)
+        view.addSubview(endingLabel)
     }
     
+    /*
     // Helper function to add character and textbox to view
     private func addSpeakingCharacterToView(character: UIImage, textbox: UIImage) {
-        let posLabel = UILabel(frame: CGRect(x: 93, y: 370, width: 180, height: 90))
-        posLabel.textAlignment = .center
+        let presentingLabel = UILabel()
+        presentingLabel.textAlignment = .center
         
-        let hippoView = UIImageView(frame: CGRect(x: 16, y: 520, width: 120, height: 120))
-        hippoView.contentMode = .scaleAspectFill
-        hippoView.image = character
+        let characterView = UIImageView(frame: CGRect(x: 16, y: 520, width: 120, height: 120))
+        characterView.contentMode = .scaleAspectFill
+        characterView.image = character
         let textboxView = UIImageView(frame: CGRect(x: 84, y: 379, width: 200, height: 100))
         textboxView.contentMode = .scaleAspectFill
         textboxView.image = textbox
+        
+        view.addSubview(characterView)
+        view.addSubview(textboxView)
     }
+    */
 
     // Request each item on the list
     @objc private func playGame() {

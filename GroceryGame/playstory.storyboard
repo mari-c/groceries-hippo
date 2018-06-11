@@ -96,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textbook2" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-Am-0TI">
-                                <rect key="frame" x="16" y="280" width="240" height="205"/>
+                                <rect key="frame" x="0.0" y="304" width="240" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="bFn-lW-W0d">
@@ -155,8 +155,8 @@
                         <outlet property="leftFeet" destination="f6a-Hx-TVd" id="xog-0V-41o"/>
                         <outlet property="listCounter" destination="aBd-z6-2uA" id="xyE-iG-FOd"/>
                         <outlet property="rightFeet" destination="fqh-ti-4Wq" id="wRS-Id-Czp"/>
-                        <outlet property="textbook2" destination="Tpt-Am-0TI" id="Q5l-Fu-9oS"/>
                         <outlet property="textbox1" destination="oli-1a-I0N" id="XQt-A1-swi"/>
+                        <outlet property="textbox2" destination="Tpt-Am-0TI" id="Q5l-Fu-9oS"/>
                         <outlet property="viewtap" destination="smM-D7-oBI" id="1Uc-T4-haa"/>
                     </connections>
                 </viewController>
