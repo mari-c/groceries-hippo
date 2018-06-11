@@ -49,7 +49,7 @@ class PlaystoryViewController: UIViewController {
     
     // MARK: Private Methods
     
-    @objc private func welcomeAnimation() {
+    private func welcomeAnimation() {
         UIView.animate(withDuration: 0.7, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
             self.rightFeet.frame.origin.y -= 20
         })

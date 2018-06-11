@@ -13,12 +13,15 @@ class ExerciseGameController: UIViewController {
 
     // MARK: Properties
     
-    @IBOutlet weak var taskButton: UIButton!
+    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
     var index = 0
     var tasks = [String]()
+    var points = Int()
+    
     var stepLabel = UILabel(frame: CGRect(x: 253, y: 97, width: 180, height: 101))
     var motionManager = CMMotionManager()
     var altimeter = CMAltimeter()
@@ -29,6 +32,11 @@ class ExerciseGameController: UIViewController {
     var ACCELERATION_FORCE = 2.0
     var MIN_CROUCH_HEIGHT = 0.20
     
+    // Default points per task completed
+    var TASK_POINTS = 100
+    // Default points per step
+    var STEP_POINTS = 5
+    
     // Crouch task timer
     var timer = Timer()
     var timerSeconds = 3
@@ -37,10 +45,12 @@ class ExerciseGameController: UIViewController {
         super.viewDidLoad()
 
         // Only show button when task is completed successfully
-        taskButton.isHidden = true
+        doneButton.isHidden = true
         
-        // Only show Start button in tasks in tasks involving step count
+        // Only show Start button in tasks involving step count
         startButton.isHidden = true
+        
+        pointsLabel.text = String(points)
 
         loadText()
         let ind = displayText()
@@ -63,10 +73,11 @@ class ExerciseGameController: UIViewController {
                 if let stepData = data {
                     DispatchQueue.main.sync {
                         self.stepLabel.text = "Steps: \(stepData.numberOfSteps)"
-                        print(stepData.numberOfSteps)
-                        self.taskButton.isHidden = false
-                        print("Stopping pedometer updates")
+                        self.doneButton.isHidden = false
                         self.pedometer.stopUpdates()
+                        let total = Int(truncating: stepData.numberOfSteps) * self.STEP_POINTS + self.TASK_POINTS
+                        self.points += total
+                        self.pointsLabel.text = String(self.points)
                     }
                 }
             })
@@ -113,8 +124,9 @@ class ExerciseGameController: UIViewController {
                         // print("RELATIVE ALTITUDE: \(altitudeData.relativeAltitude)")
                         // print("HEIGHT CHANGE: \(heightChange)")
                         if position > self.MIN_STRETCH_HEIGHT {
-                            self.taskButton.isHidden = false
+                            self.doneButton.isHidden = false
                             self.altimeter.stopRelativeAltitudeUpdates()
+                            self.updatePoints()
                         }
                     }
                 })
@@ -124,7 +136,9 @@ class ExerciseGameController: UIViewController {
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
                 if let accelerationData = data {
                     if accelerationData.acceleration.x > self.ACCELERATION_FORCE || accelerationData.acceleration.y > self.ACCELERATION_FORCE {
-                        self.taskButton.isHidden = false
+                        self.doneButton.isHidden = false
+                        self.motionManager.stopAccelerometerUpdates()
+                        self.updatePoints()
                     }
                 }
             }
@@ -135,10 +149,11 @@ class ExerciseGameController: UIViewController {
                 altimeter.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (data, error) in
                     if let altitudeData = data {
                         let position = Double(truncating: altitudeData.relativeAltitude)
-                        print("HEIGHT CHANGE: \(position)")
+                        // print("HEIGHT CHANGE: \(position)")
                         if position < 0 && abs(position) > self.MIN_CROUCH_HEIGHT && self.timerSeconds < 1 {
-                            self.taskButton.isHidden = false
+                            self.doneButton.isHidden = false
                             self.altimeter.stopRelativeAltitudeUpdates()
+                            self.updatePoints()
                         }
                     }
                 })
@@ -160,6 +175,11 @@ class ExerciseGameController: UIViewController {
         } else {
             timerSeconds -= 1
         }
+    }
+    
+    private func updatePoints() {
+        points += TASK_POINTS
+        pointsLabel.text = String(points)
     }
     
 }

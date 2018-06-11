@@ -12,6 +12,7 @@ class ItemSearchViewController: UIViewController {
     
     // MARK: Properties
     
+    @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var listCounter: UITextField!
     @IBOutlet weak var cartCounter: UITextField!
     @IBOutlet weak var itemImage: UIImageView!
@@ -25,6 +26,8 @@ class ItemSearchViewController: UIViewController {
     
     // Current position in the list of items; need to change implementation to randomize item order
     var index = 1
+    
+    var points = Int()
     
     var touchLabel = UILabel()
     
@@ -53,19 +56,22 @@ class ItemSearchViewController: UIViewController {
     }
     */
 
-    /*
     // MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "StartExercise" {
+            let destination = segue.destination as! ExerciseGameController
+            destination.points = points
+        }
     }
-    */
     
     // MARK: Actions
     
     @IBAction func unwindToItemSearch(sender: UIStoryboardSegue) {
+        if let sourceController = sender.source as? ExerciseGameController {
+            points = sourceController.points
+        }
         if index > (playList?.items.count)! {
             // Finish game
             itemImage.isHidden = true
@@ -73,14 +79,17 @@ class ItemSearchViewController: UIViewController {
             finishedButton.isHidden = true
             listCounter.text = String(Int(listCounter.text!)! - 1)
             cartCounter.text = String(Int(cartCounter.text!)! + 1)
+            pointsLabel.text = String(points)
             endGameScreen()
             
             tapEndGame = UITapGestureRecognizer(target: self, action: #selector(endGame))
             view.addGestureRecognizer(tapEndGame)
         } else {
-            // Move item from list to cart
+            // Move item from list to cart and update points label
             listCounter.text = String(Int(listCounter.text!)! - 1)
             cartCounter.text = String(Int(cartCounter.text!)! + 1)
+            pointsLabel.text = String(points)
+            // Keep playing and continue to next item
             playGame()
         }
     }

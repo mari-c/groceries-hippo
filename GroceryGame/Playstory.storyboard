@@ -66,9 +66,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food selve" translatesAutoresizingMaskIntoConstraints="NO" id="smM-D7-oBI">
-                                <rect key="frame" x="0.0" y="27" width="375" height="611"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food selve" translatesAutoresizingMaskIntoConstraints="NO" id="smM-D7-oBI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="1Sy-i8-Kg7" appends="YES" id="a0G-1x-Pem"/>
@@ -140,10 +139,14 @@
                             <constraint firstItem="aBd-z6-2uA" firstAttribute="centerY" secondItem="bFn-lW-W0d" secondAttribute="centerY" id="2qP-9o-hZn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QdO-5x-izF" secondAttribute="trailing" constant="16" id="79v-V9-oXl"/>
                             <constraint firstItem="aBd-z6-2uA" firstAttribute="leading" secondItem="bFn-lW-W0d" secondAttribute="trailing" constant="8" id="8M4-CO-HfD"/>
+                            <constraint firstItem="smM-D7-oBI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9t6-f6-Ri7"/>
                             <constraint firstItem="QdO-5x-izF" firstAttribute="leading" secondItem="hd3-UB-mRq" secondAttribute="trailing" constant="8" id="Ar2-MD-zay"/>
                             <constraint firstItem="bFn-lW-W0d" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="F8X-jR-Z7c"/>
                             <constraint firstItem="hd3-UB-mRq" firstAttribute="centerY" secondItem="QdO-5x-izF" secondAttribute="centerY" id="KHj-gn-eEH"/>
                             <constraint firstItem="bFn-lW-W0d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LUd-xF-e7y"/>
+                            <constraint firstAttribute="trailing" secondItem="smM-D7-oBI" secondAttribute="trailing" id="MLl-Ef-PlU"/>
+                            <constraint firstItem="smM-D7-oBI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OtM-OY-JYf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="smM-D7-oBI" secondAttribute="bottom" id="bCt-78-HwK"/>
                             <constraint firstItem="QdO-5x-izF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="fLb-JM-iMp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -167,7 +170,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-294" y="134"/>
+            <point key="canvasLocation" x="-295.19999999999999" y="133.5832083958021"/>
         </scene>
         <!--Item Search View Controller-->
         <scene sceneID="YTp-91-jyJ">
@@ -204,7 +207,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="51L-1J-Y5e" kind="show" identifier="startExercise" id="pYg-T3-I8l"/>
+                                    <segue destination="51L-1J-Y5e" kind="show" identifier="StartExercise" id="pYg-T3-I8l"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-Gn-JbK">
@@ -241,6 +244,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoO-8G-FhD" userLabel="Points">
+                                <rect key="frame" x="120" y="43" width="135" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -251,8 +260,12 @@
                             <constraint firstItem="Q6w-Gn-JbK" firstAttribute="leading" secondItem="6zc-q4-iuo" secondAttribute="leading" constant="16" id="5k5-fS-Tdm"/>
                             <constraint firstItem="MVX-LA-HuU" firstAttribute="top" secondItem="6zc-q4-iuo" secondAttribute="top" constant="16" id="7QW-WU-6OP"/>
                             <constraint firstItem="6zc-q4-iuo" firstAttribute="trailing" secondItem="MVX-LA-HuU" secondAttribute="trailing" constant="16" id="I4t-d5-6aw"/>
+                            <constraint firstItem="qoO-8G-FhD" firstAttribute="centerY" secondItem="Nb1-cc-a1D" secondAttribute="centerY" id="Ogv-NP-LMf"/>
+                            <constraint firstItem="6O1-ej-Yoi" firstAttribute="leading" secondItem="qoO-8G-FhD" secondAttribute="trailing" constant="8" id="RdX-8E-unX"/>
                             <constraint firstItem="Nb1-cc-a1D" firstAttribute="centerY" secondItem="Q6w-Gn-JbK" secondAttribute="centerY" id="Rlz-fh-ItT"/>
+                            <constraint firstItem="qoO-8G-FhD" firstAttribute="leading" secondItem="Nb1-cc-a1D" secondAttribute="trailing" constant="8" id="WbL-Tw-ENw"/>
                             <constraint firstItem="6O1-ej-Yoi" firstAttribute="centerY" secondItem="MVX-LA-HuU" secondAttribute="centerY" id="WeA-jm-SrJ"/>
+                            <constraint firstItem="qoO-8G-FhD" firstAttribute="centerX" secondItem="6zc-q4-iuo" secondAttribute="centerX" id="XwB-f2-6LK"/>
                             <constraint firstItem="ZQc-QW-VMl" firstAttribute="centerX" secondItem="6zc-q4-iuo" secondAttribute="centerX" id="Zjr-Ce-aKK"/>
                             <constraint firstItem="Fpa-EM-WPf" firstAttribute="leading" secondItem="6zc-q4-iuo" secondAttribute="leading" constant="67" id="aU1-U8-UDK"/>
                             <constraint firstItem="6zc-q4-iuo" firstAttribute="trailing" secondItem="Fpa-EM-WPf" secondAttribute="trailing" constant="67" id="jqt-1k-Odw"/>
@@ -272,6 +285,7 @@
                         <outlet property="itemImage" destination="Fpa-EM-WPf" id="W1V-aO-tz5"/>
                         <outlet property="itemQuantity" destination="X9U-OZ-M7H" id="n9T-rp-buo"/>
                         <outlet property="listCounter" destination="Nb1-cc-a1D" id="klZ-E5-Lcs"/>
+                        <outlet property="pointsLabel" destination="qoO-8G-FhD" id="9TR-qr-arI"/>
                         <outlet property="tapEndGame" destination="d2K-aa-NuP" id="1OL-Qg-lb6"/>
                         <outlet property="tapNextItem" destination="IOh-UK-WMk" id="RGU-6x-oUz"/>
                     </connections>
@@ -323,13 +337,27 @@
                                     <action selector="countSteps:" destination="51L-1J-Y5e" eventType="touchUpInside" id="Ts1-6N-wJC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyF-tF-O34" userLabel="Points">
+                                <rect key="frame" x="120" y="43" width="135" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="wxO-Q1-VTO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HyF-tF-O34" firstAttribute="top" secondItem="tLg-4r-FwN" secondAttribute="top" constant="23" id="Cre-sH-bZs"/>
+                            <constraint firstItem="HyF-tF-O34" firstAttribute="centerX" secondItem="tLg-4r-FwN" secondAttribute="centerX" id="j7i-an-U0k"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tLg-4r-FwN"/>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="M8l-T6-Vof" id="H3Q-AB-KFX"/>
+                        <outlet property="pointsLabel" destination="HyF-tF-O34" id="qc6-TP-fUO"/>
                         <outlet property="startButton" destination="Jb0-Qt-M8D" id="qNK-ou-myQ"/>
-                        <outlet property="taskButton" destination="M8l-T6-Vof" id="H3Q-AB-KFX"/>
                         <outlet property="taskLabel" destination="avk-ZN-YfC" id="rdw-qd-NVl"/>
                     </connections>
                 </viewController>

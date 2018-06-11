@@ -16,20 +16,18 @@ class HomeViewController: UIViewController {
         navigationItem.hidesBackButton = true
     }
 
+    /*
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    */
     
     @IBAction func playSelected(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Playstory", bundle: nil)
-        // let controller = storyboard.instantiateViewController(withIdentifier: "SelectPlaystoryList") as UIViewController
-        // present(controller, animated: true, completion: nil)
-        
         let playstoryController = storyboard.instantiateViewController(withIdentifier: "SelectPlaystoryList")
         navigationController?.pushViewController(playstoryController, animated: true)
     }
-    
 
 }
 
