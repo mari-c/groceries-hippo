@@ -139,7 +139,7 @@ class ItemSearchViewController: UIViewController {
         textboxView.contentMode = .scaleAspectFill
         textboxView.image = textbox
         
-        let endingLabel = UILabel()
+        let endingLabel = UILabel(frame: CGRect(x: 91, y: 363, width: 180, height: 90))
         endingLabel.textAlignment = .center
         endingLabel.numberOfLines = 3
         endingLabel.text = "Great job! \n You found all the items!"
@@ -187,8 +187,8 @@ class ItemSearchViewController: UIViewController {
     
     // Go to home screen when exiting Play mode
     @objc private func endGame() {
-        let playstoryController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
-        navigationController?.pushViewController(playstoryController, animated: true)
+        let homeController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
+        navigationController?.pushViewController(homeController, animated: true)
     }
     
     /*

@@ -9,7 +9,7 @@
 import UIKit
 import CoreMotion
 
-class exerciseGameController: UIViewController {
+class ExerciseGameController: UIViewController {
 
     // MARK: Properties
     
@@ -27,7 +27,11 @@ class exerciseGameController: UIViewController {
     // Choose threshold values to detect task completion
     var MIN_STRETCH_HEIGHT = 0.35
     var ACCELERATION_FORCE = 2.0
-    var MIN_CROUCH_HEIGHT = 0.17
+    var MIN_CROUCH_HEIGHT = 0.20
+    
+    // Crouch task timer
+    var timer = Timer()
+    var timerSeconds = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +95,7 @@ class exerciseGameController: UIViewController {
         let ind = Int(arc4random_uniform(UInt32(tasks.count - 1)))
         
         // USE THIS TO TEST EACH TASK; CHANGE ind FROM var TO let THEN DELETE WHEN DONE!
-        // ind = 2
+        // ind = 3
         
         taskLabel.text = tasks[ind]
         return ind
@@ -115,7 +119,7 @@ class exerciseGameController: UIViewController {
                     }
                 })
             }
-        case 1, 3:
+        case 1, 2:
             // Shake
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
                 if let accelerationData = data {
@@ -124,28 +128,37 @@ class exerciseGameController: UIViewController {
                     }
                 }
             }
-        case 2:
-            // Long steps for a few seconds
-            stepLabel.textAlignment = .left
-            stepLabel.text = "Steps: ..."
-            stepLabel.font = stepLabel.font.withSize(20.0)
-            startButton.isHidden = false
-        case 4:
-            // Crouch then stand up
+        case 3:
+            // Crouch and count to 3
             if CMAltimeter.isRelativeAltitudeAvailable() {
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCrouchTimer), userInfo: nil, repeats: true)
                 altimeter.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (data, error) in
                     if let altitudeData = data {
                         let position = Double(truncating: altitudeData.relativeAltitude)
                         print("HEIGHT CHANGE: \(position)")
-                        if position < 0 && abs(position) > self.MIN_CROUCH_HEIGHT {
+                        if position < 0 && abs(position) > self.MIN_CROUCH_HEIGHT && self.timerSeconds < 1 {
                             self.taskButton.isHidden = false
                             self.altimeter.stopRelativeAltitudeUpdates()
                         }
                     }
                 })
             }
+        case 4:
+            // Walk with long steps for a few seconds
+            stepLabel.textAlignment = .left
+            stepLabel.text = "Steps: ..."
+            stepLabel.font = stepLabel.font.withSize(20.0)
+            startButton.isHidden = false
         default:
             fatalError("Task index does not exist. Task could not be requested.")
+        }
+    }
+    
+    @objc private func updateCrouchTimer() {
+        if timerSeconds < 1 {
+            timer.invalidate()
+        } else {
+            timerSeconds -= 1
         }
     }
     

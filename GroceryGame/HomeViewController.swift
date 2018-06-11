@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func playSelected(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "playstory", bundle: nil)
+        let storyboard = UIStoryboard(name: "Playstory", bundle: nil)
         // let controller = storyboard.instantiateViewController(withIdentifier: "SelectPlaystoryList") as UIViewController
         // present(controller, animated: true, completion: nil)
         

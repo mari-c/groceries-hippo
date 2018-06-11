@@ -285,7 +285,7 @@
         <!--Exercise Game Controller-->
         <scene sceneID="6tu-ow-C7r">
             <objects>
-                <viewController id="51L-1J-Y5e" customClass="exerciseGameController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="51L-1J-Y5e" customClass="ExerciseGameController" customModule="GroceryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OaT-Tz-ZRa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
