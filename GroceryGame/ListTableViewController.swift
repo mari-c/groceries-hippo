@@ -181,6 +181,7 @@ class ListTableViewController: UITableViewController {
         }
     }
     
+    // TODO: TODO: delete bug??
     @IBAction func deleteSelectedGroceryList(_ sender: UIButton) {
         let indPath = IndexPath(row: sender.tag, section: 0)
         lists.remove(at: indPath.row)
