@@ -180,36 +180,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fpa-EM-WPf">
-                                <rect key="frame" x="67" y="117" width="241" height="177"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="177" id="efG-vY-tne"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="d2K-aa-NuP" appends="YES" id="BM8-1e-lch"/>
-                                </connections>
-                            </imageView>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" background="circle" translatesAutoresizingMaskIntoConstraints="NO" id="X9U-OZ-M7H" userLabel="Item Quantity">
-                                <rect key="frame" x="168.5" y="310" width="38" height="38"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="NOK-d3-XU7"/>
-                                    <constraint firstAttribute="width" constant="38" id="vgB-g0-q5J"/>
-                                </constraints>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQc-QW-VMl" userLabel="Finished Button">
-                                <rect key="frame" x="136.5" y="364" width="102" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Finished">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <segue destination="51L-1J-Y5e" kind="show" identifier="StartExercise" id="pYg-T3-I8l"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listicon" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-Gn-JbK">
                                 <rect key="frame" x="16" y="36" width="50" height="46"/>
                                 <constraints>
@@ -244,35 +214,64 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoO-8G-FhD" userLabel="Points">
-                                <rect key="frame" x="120" y="43" width="135" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MM2-Lf-03E">
+                                <rect key="frame" x="67" y="110" width="241.5" height="385"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09y-ZN-Ccl">
+                                        <rect key="frame" x="67" y="0.0" width="107.5" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="gof-rg-LWV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fpa-EM-WPf">
+                                        <rect key="frame" x="0.0" y="41" width="241.5" height="241"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="241" id="31z-o9-3Wi"/>
+                                            <constraint firstAttribute="width" constant="241" id="XWf-QB-A9r"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="d2K-aa-NuP" appends="YES" id="BM8-1e-lch"/>
+                                        </connections>
+                                    </imageView>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Quantity: 0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X9U-OZ-M7H" userLabel="Item Quantity">
+                                        <rect key="frame" x="70.5" y="290" width="101" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="v3J-rr-Y8r"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQc-QW-VMl" userLabel="Finished Button">
+                                        <rect key="frame" x="93.5" y="335" width="55" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="TQb-GM-lD3"/>
+                                            <constraint firstAttribute="height" constant="50" id="glB-iU-nnC"/>
+                                        </constraints>
+                                        <state key="normal" title="Item Found" image="checkmark"/>
+                                        <connections>
+                                            <segue destination="51L-1J-Y5e" kind="show" identifier="StartExercise" id="pYg-T3-I8l"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="MVX-LA-HuU" firstAttribute="leading" secondItem="6O1-ej-Yoi" secondAttribute="trailing" constant="8" id="05P-pp-pgM"/>
-                            <constraint firstItem="X9U-OZ-M7H" firstAttribute="centerX" secondItem="6zc-q4-iuo" secondAttribute="centerX" id="41t-ia-6wR"/>
-                            <constraint firstItem="ZQc-QW-VMl" firstAttribute="top" secondItem="X9U-OZ-M7H" secondAttribute="bottom" constant="16" id="4Tt-li-7Sr"/>
                             <constraint firstItem="Q6w-Gn-JbK" firstAttribute="leading" secondItem="6zc-q4-iuo" secondAttribute="leading" constant="16" id="5k5-fS-Tdm"/>
                             <constraint firstItem="MVX-LA-HuU" firstAttribute="top" secondItem="6zc-q4-iuo" secondAttribute="top" constant="16" id="7QW-WU-6OP"/>
                             <constraint firstItem="6zc-q4-iuo" firstAttribute="trailing" secondItem="MVX-LA-HuU" secondAttribute="trailing" constant="16" id="I4t-d5-6aw"/>
-                            <constraint firstItem="qoO-8G-FhD" firstAttribute="centerY" secondItem="Nb1-cc-a1D" secondAttribute="centerY" id="Ogv-NP-LMf"/>
-                            <constraint firstItem="6O1-ej-Yoi" firstAttribute="leading" secondItem="qoO-8G-FhD" secondAttribute="trailing" constant="8" id="RdX-8E-unX"/>
                             <constraint firstItem="Nb1-cc-a1D" firstAttribute="centerY" secondItem="Q6w-Gn-JbK" secondAttribute="centerY" id="Rlz-fh-ItT"/>
-                            <constraint firstItem="qoO-8G-FhD" firstAttribute="leading" secondItem="Nb1-cc-a1D" secondAttribute="trailing" constant="8" id="WbL-Tw-ENw"/>
                             <constraint firstItem="6O1-ej-Yoi" firstAttribute="centerY" secondItem="MVX-LA-HuU" secondAttribute="centerY" id="WeA-jm-SrJ"/>
-                            <constraint firstItem="qoO-8G-FhD" firstAttribute="centerX" secondItem="6zc-q4-iuo" secondAttribute="centerX" id="XwB-f2-6LK"/>
-                            <constraint firstItem="ZQc-QW-VMl" firstAttribute="centerX" secondItem="6zc-q4-iuo" secondAttribute="centerX" id="Zjr-Ce-aKK"/>
-                            <constraint firstItem="Fpa-EM-WPf" firstAttribute="leading" secondItem="6zc-q4-iuo" secondAttribute="leading" constant="67" id="aU1-U8-UDK"/>
-                            <constraint firstItem="6zc-q4-iuo" firstAttribute="trailing" secondItem="Fpa-EM-WPf" secondAttribute="trailing" constant="67" id="jqt-1k-Odw"/>
-                            <constraint firstItem="X9U-OZ-M7H" firstAttribute="top" secondItem="Fpa-EM-WPf" secondAttribute="bottom" constant="16" id="ox8-ox-aFr"/>
+                            <constraint firstItem="MM2-Lf-03E" firstAttribute="centerX" secondItem="6zc-q4-iuo" secondAttribute="centerX" id="cPf-BQ-Rc7"/>
+                            <constraint firstItem="MM2-Lf-03E" firstAttribute="top" secondItem="Nb1-cc-a1D" secondAttribute="bottom" constant="32" id="kDe-DV-rd7"/>
                             <constraint firstItem="Q6w-Gn-JbK" firstAttribute="top" secondItem="6zc-q4-iuo" secondAttribute="top" constant="16" id="rgA-ZX-Awx"/>
                             <constraint firstItem="Nb1-cc-a1D" firstAttribute="leading" secondItem="Q6w-Gn-JbK" secondAttribute="trailing" constant="8" id="w2E-HN-Pxe"/>
-                            <constraint firstItem="Fpa-EM-WPf" firstAttribute="top" secondItem="Nb1-cc-a1D" secondAttribute="bottom" constant="39" id="yhi-Lw-UHH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6zc-q4-iuo"/>
                         <connections>
@@ -281,11 +280,11 @@
                     </view>
                     <connections>
                         <outlet property="cartCounter" destination="6O1-ej-Yoi" id="Fem-1y-UB5"/>
-                        <outlet property="finishedButton" destination="ZQc-QW-VMl" id="0VE-t0-ZTT"/>
+                        <outlet property="checkmarkButton" destination="ZQc-QW-VMl" id="0VE-t0-ZTT"/>
                         <outlet property="itemImage" destination="Fpa-EM-WPf" id="W1V-aO-tz5"/>
+                        <outlet property="itemNameLabel" destination="09y-ZN-Ccl" id="HBh-Kz-xIv"/>
                         <outlet property="itemQuantity" destination="X9U-OZ-M7H" id="n9T-rp-buo"/>
                         <outlet property="listCounter" destination="Nb1-cc-a1D" id="klZ-E5-Lcs"/>
-                        <outlet property="pointsLabel" destination="qoO-8G-FhD" id="9TR-qr-arI"/>
                         <outlet property="tapEndGame" destination="d2K-aa-NuP" id="1OL-Qg-lb6"/>
                         <outlet property="tapNextItem" destination="IOh-UK-WMk" id="RGU-6x-oUz"/>
                     </connections>
@@ -294,7 +293,7 @@
                 <tapGestureRecognizer id="IOh-UK-WMk"/>
                 <tapGestureRecognizer id="d2K-aa-NuP"/>
             </objects>
-            <point key="canvasLocation" x="620" y="134"/>
+            <point key="canvasLocation" x="620" y="133.5832083958021"/>
         </scene>
         <!--Exercise Game Controller-->
         <scene sceneID="6tu-ow-C7r">
@@ -337,26 +336,12 @@
                                     <action selector="countSteps:" destination="51L-1J-Y5e" eventType="touchUpInside" id="Ts1-6N-wJC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyF-tF-O34" userLabel="Points">
-                                <rect key="frame" x="120" y="43" width="135" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="wxO-Q1-VTO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="HyF-tF-O34" firstAttribute="top" secondItem="tLg-4r-FwN" secondAttribute="top" constant="23" id="Cre-sH-bZs"/>
-                            <constraint firstItem="HyF-tF-O34" firstAttribute="centerX" secondItem="tLg-4r-FwN" secondAttribute="centerX" id="j7i-an-U0k"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tLg-4r-FwN"/>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="M8l-T6-Vof" id="H3Q-AB-KFX"/>
-                        <outlet property="pointsLabel" destination="HyF-tF-O34" id="qc6-TP-fUO"/>
                         <outlet property="startButton" destination="Jb0-Qt-M8D" id="qNK-ou-myQ"/>
                         <outlet property="taskLabel" destination="avk-ZN-YfC" id="rdw-qd-NVl"/>
                     </connections>
@@ -369,6 +354,7 @@
     </scenes>
     <resources>
         <image name="carticon" width="954" height="809"/>
+        <image name="checkmark" width="502" height="442"/>
         <image name="circle" width="96" height="89"/>
         <image name="feet 1" width="153" height="152"/>
         <image name="food selve" width="500" height="458"/>

@@ -32,9 +32,14 @@ class ListTableViewController: UITableViewController {
             loadSampleLists()
         }
         
+        // Play button exists only in Playstory
         // Enable the Play button only if a cell is selected
         if playButton != nil {
             playButton.isEnabled = false
+            playButton.isHidden = true
+            
+            // TODO: TODO: show character asking to select list before playing
+            showListSelectionCharacter()
         }
         
         // Uncomment the following line to preserve selection between presentations
@@ -125,6 +130,7 @@ class ListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if restorationIdentifier == "SelectPlaystoryList" {
             selectedList = GroceryList(name: lists[indexPath.row].name, items: lists[indexPath.row].items)
+            playButton.isHidden = false
             playButton.isEnabled = true
         }
     }
@@ -222,6 +228,10 @@ class ListTableViewController: UITableViewController {
     
     private func loadGroceryLists() -> [GroceryList]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: GroceryList.ArchiveURL.path) as? [GroceryList]
+    }
+    
+    private func showListSelectionCharacter() {
+        // TODO: TODO: implement showListSelectionCharacter
     }
 
 }

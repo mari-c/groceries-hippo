@@ -12,12 +12,12 @@ class ItemSearchViewController: UIViewController {
     
     // MARK: Properties
     
-    @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var listCounter: UITextField!
     @IBOutlet weak var cartCounter: UITextField!
+    @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemQuantity: UITextField!
-    @IBOutlet weak var finishedButton: UIButton!
+    @IBOutlet weak var checkmarkButton: UIButton!
     @IBOutlet var tapNextItem: UITapGestureRecognizer!
     @IBOutlet var tapEndGame: UITapGestureRecognizer!
     
@@ -27,7 +27,7 @@ class ItemSearchViewController: UIViewController {
     // Current position in the list of items; need to change implementation to randomize item order
     var index = 1
     
-    var points = Int()
+    // var points = Int()
     
     var touchLabel = UILabel()
     
@@ -39,8 +39,10 @@ class ItemSearchViewController: UIViewController {
         tapNextItem = UITapGestureRecognizer(target: self, action: #selector(playGame))
         view.addGestureRecognizer(tapNextItem)
         
+        itemNameLabel.isHidden = true
+        itemImage.isHidden = true
         itemQuantity.isHidden = true
-        finishedButton.isHidden = true
+        checkmarkButton.isHidden = true
         
         touchLabel.text = "Touch the screen to start"
         touchLabel.textColor = .lightGray
@@ -56,6 +58,7 @@ class ItemSearchViewController: UIViewController {
     }
     */
 
+    /*
     // MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -65,30 +68,34 @@ class ItemSearchViewController: UIViewController {
             destination.points = points
         }
     }
+    */
     
     // MARK: Actions
     
     @IBAction func unwindToItemSearch(sender: UIStoryboardSegue) {
+        /*
         if let sourceController = sender.source as? ExerciseGameController {
             points = sourceController.points
         }
+        */
         if index > (playList?.items.count)! {
             // Finish game
+            itemNameLabel.isHidden = true
             itemImage.isHidden = true
             itemQuantity.isHidden = true
-            finishedButton.isHidden = true
+            checkmarkButton.isHidden = true
             listCounter.text = String(Int(listCounter.text!)! - 1)
             cartCounter.text = String(Int(cartCounter.text!)! + 1)
-            pointsLabel.text = String(points)
+            // pointsLabel.text = String(points)
             endGameScreen()
             
             tapEndGame = UITapGestureRecognizer(target: self, action: #selector(endGame))
             view.addGestureRecognizer(tapEndGame)
         } else {
-            // Move item from list to cart and update points label
+            // Move item from list to cart
             listCounter.text = String(Int(listCounter.text!)! - 1)
             cartCounter.text = String(Int(cartCounter.text!)! + 1)
-            pointsLabel.text = String(points)
+            // pointsLabel.text = String(points)
             // Keep playing and continue to next item
             playGame()
         }
@@ -98,9 +105,10 @@ class ItemSearchViewController: UIViewController {
     
     // Helper function used to present each item with character animation
     private func presentItemAnimation() {
+        itemNameLabel.isHidden = true
         itemImage.isHidden = true
         itemQuantity.isHidden = true
-        finishedButton.isHidden = true
+        checkmarkButton.isHidden = true
         
         let hippo = UIImage(named: "hippofull")
         let textbox = UIImage(named: "emptyTextboxLeft")
@@ -130,9 +138,10 @@ class ItemSearchViewController: UIViewController {
             textboxView.removeFromSuperview()
             presentingLabel.removeFromSuperview()
             hippoView.removeFromSuperview()
+            self.itemNameLabel.isHidden = false
             self.itemImage.isHidden = false
             self.itemQuantity.isHidden = false
-            self.finishedButton.isHidden = false
+            self.checkmarkButton.isHidden = false
         })
     }
     
@@ -184,11 +193,14 @@ class ItemSearchViewController: UIViewController {
         let i = index - 1
         let item = (playList?.items[i])!
         if i < (playList?.items.count)! {
+            itemNameLabel.isHidden = false
+            itemImage.isHidden = false
             itemQuantity.isHidden = false
-            finishedButton.isHidden = false
+            checkmarkButton.isHidden = false
             // playItem(item: (playList?.items[i])!, index: index)
+            itemNameLabel.text = item.itemName
             itemImage.image = item.image
-            itemQuantity.text = String(item.quantity)
+            itemQuantity.text = "Quantity: \(item.quantity)"
             presentItemAnimation()
             index += 1
         }
@@ -206,7 +218,7 @@ class ItemSearchViewController: UIViewController {
      
     private func playItem(item: GroceryItem, index: Int) {
         itemImage.image = item.image
-        itemQuantity.text = String(item.quantity)
+        itemQuantity.text = "Quantity: \(item.quantity)"
         presentItemAnimation(position: index)
     }
     
