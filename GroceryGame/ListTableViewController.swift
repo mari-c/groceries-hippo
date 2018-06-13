@@ -38,7 +38,6 @@ class ListTableViewController: UITableViewController {
             playButton.isEnabled = false
             playButton.isHidden = true
             
-            // TODO: TODO: show character asking to select list before playing
             showListSelectionCharacter()
         }
         
@@ -231,7 +230,30 @@ class ListTableViewController: UITableViewController {
     }
     
     private func showListSelectionCharacter() {
-        // TODO: TODO: implement showListSelectionCharacter
+        let hippo = UIImage(named: "hippofull")
+        let textbox = UIImage(named: "textbook3")
+        
+        let hippoView = UIImageView(frame: CGRect(x: 16, y: 457, width: 120, height: 120))
+        hippoView.contentMode = .scaleAspectFill
+        hippoView.image = hippo
+        let textboxView = UIImageView(frame: CGRect(x: 84, y: 316, width: 200, height: 100))
+        textboxView.contentMode = .scaleAspectFill
+        textboxView.image = textbox
+        
+        let label = UILabel(frame: CGRect(x: 97, y: 300, width: 160, height: 90))
+        label.textAlignment = .center
+        label.numberOfLines = 4
+        label.text = "Please select a grocery list before we can play together!"
+        
+        view.addSubview(hippoView)
+        view.addSubview(textboxView)
+        view.addSubview(label)
+        
+        UIView.animate(withDuration: 2, delay: 5, options: [.curveEaseInOut], animations: {
+            textboxView.alpha = 0
+            label.alpha = 0
+            hippoView.frame.origin.x += 900
+        })
     }
 
 }
