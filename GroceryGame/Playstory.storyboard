@@ -81,11 +81,6 @@
                                 <rect key="frame" x="145" y="562" width="84" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textbook1" translatesAutoresizingMaskIntoConstraints="NO" id="oli-1a-I0N">
-                                <rect key="frame" x="113" y="299" width="225" height="213"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left feet" translatesAutoresizingMaskIntoConstraints="NO" id="f6a-Hx-TVd">
                                 <rect key="frame" x="10" y="619" width="94" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,6 +127,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textbook4" translatesAutoresizingMaskIntoConstraints="NO" id="oli-1a-I0N">
+                                <rect key="frame" x="132" y="340" width="200" height="169"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -362,8 +362,8 @@
         <image name="hippofull" width="262" height="324"/>
         <image name="left feet" width="220" height="155"/>
         <image name="listicon" width="653" height="627"/>
-        <image name="textbook1" width="563" height="516"/>
         <image name="textbook2" width="660" height="574"/>
         <image name="textbook3" width="561" height="536"/>
+        <image name="textbook4" width="566" height="521"/>
     </resources>
 </document>

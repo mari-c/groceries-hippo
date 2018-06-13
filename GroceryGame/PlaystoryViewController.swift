@@ -16,8 +16,8 @@ class PlaystoryViewController: UIViewController {
     @IBOutlet weak var rightFeet: UIImageView!
     @IBOutlet weak var leftFeet: UIImageView!
     @IBOutlet weak var hippoBody: UIImageView!
-    @IBOutlet weak var textbox1: UIImageView!
     @IBOutlet weak var hippoFull: UIImageView!
+    @IBOutlet weak var textbox1: UIImageView!
     @IBOutlet weak var textbox2: UIImageView!
     
     @IBOutlet weak var listCounter: UITextField!
@@ -27,6 +27,8 @@ class PlaystoryViewController: UIViewController {
     var playList: GroceryList?
     
     var tapGesture: UITapGestureRecognizer?
+    
+    var arrowView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +52,15 @@ class PlaystoryViewController: UIViewController {
     // MARK: Private Methods
     
     private func welcomeAnimation() {
+        let arrowFrame = CGRect(x: 224, y: 433, width: 20, height: 20)
+        showTextboxArrow(frame: arrowFrame)
         UIView.animate(withDuration: 0.7, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
             self.rightFeet.frame.origin.y -= 20
         })
     }
     
     @objc private func askForHelpAnimation() {
+        arrowView.isHidden = true
         UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut], animations: {
             self.viewtap.isUserInteractionEnabled = false
             self.rightFeet.isHidden = true
@@ -67,9 +72,20 @@ class PlaystoryViewController: UIViewController {
         }, completion: { _ in
             self.viewtap.isUserInteractionEnabled = true
             self.textbox2.isHidden = false
+            let arrowFrame = CGRect(x: 103, y: 433, width: 20, height: 20)
+            self.showTextboxArrow(frame: arrowFrame)
+            self.arrowView.isHidden = false
             self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.playToGetItems))
             self.viewtap.addGestureRecognizer(self.tapGesture!)
             })
+    }
+    
+    private func showTextboxArrow(frame: CGRect) {
+        arrowView.frame = frame
+        arrowView.contentMode = .scaleAspectFill
+        arrowView.image = UIImage(named: "BackIcon")
+        arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        view.addSubview(arrowView)
     }
     
     @objc private func playToGetItems() {
