@@ -137,7 +137,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Grocery Lists" id="dMQ-J5-Ihu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wh7-R3-gCg">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Wh7-R3-gCg">
                             <connections>
                                 <segue destination="7ln-on-DBh" kind="presentation" identifier="NewList" id="cIF-NT-fIV"/>
                             </connections>

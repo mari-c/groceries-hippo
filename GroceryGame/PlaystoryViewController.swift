@@ -52,7 +52,7 @@ class PlaystoryViewController: UIViewController {
     // MARK: Private Methods
     
     private func welcomeAnimation() {
-        let arrowFrame = CGRect(x: 224, y: 433, width: 20, height: 20)
+        let arrowFrame = CGRect(x: 219, y: 433, width: 20, height: 20)
         showTextboxArrow(frame: arrowFrame)
         UIView.animate(withDuration: 0.7, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
             self.rightFeet.frame.origin.y -= 20
@@ -72,7 +72,7 @@ class PlaystoryViewController: UIViewController {
         }, completion: { _ in
             self.viewtap.isUserInteractionEnabled = true
             self.textbox2.isHidden = false
-            let arrowFrame = CGRect(x: 103, y: 433, width: 20, height: 20)
+            let arrowFrame = CGRect(x: 99, y: 433, width: 20, height: 20)
             self.showTextboxArrow(frame: arrowFrame)
             self.arrowView.isHidden = false
             self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.playToGetItems))
@@ -86,6 +86,10 @@ class PlaystoryViewController: UIViewController {
         arrowView.image = UIImage(named: "BackIcon")
         arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
         view.addSubview(arrowView)
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .curveEaseInOut], animations: {
+            self.arrowView.frame.origin.x += 10
+        })
     }
     
     @objc private func playToGetItems() {
