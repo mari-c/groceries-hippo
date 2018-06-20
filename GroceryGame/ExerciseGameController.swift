@@ -28,8 +28,8 @@ class ExerciseGameController: UIViewController {
     var pedometer = CMPedometer()
     
     // Choose threshold values to detect task completion
-    var MIN_STRETCH_HEIGHT = 0.35
-    var ACCELERATION_FORCE = 2.0
+    var MIN_STRETCH_HEIGHT = 0.20
+    var ACCELERATION_FORCE = 1.5
     var MIN_CROUCH_HEIGHT = 0.20
     
     /*
