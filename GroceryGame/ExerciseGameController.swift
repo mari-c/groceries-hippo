@@ -57,13 +57,6 @@ class ExerciseGameController: UIViewController {
         let ind = displayText()
         requestTask(index: ind)
     }
-
-    /*
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    */
     
     // MARK: Actions
     
@@ -110,9 +103,6 @@ class ExerciseGameController: UIViewController {
     private func displayText() -> Int {
         let ind = Int(arc4random_uniform(UInt32(tasks.count - 1)))
         
-        // USE THIS TO TEST EACH TASK; CHANGE ind FROM var TO let THEN DELETE WHEN DONE!
-        // ind = 3
-        
         taskLabel.text = tasks[ind]
         return ind
     }
@@ -126,8 +116,6 @@ class ExerciseGameController: UIViewController {
                 altimeter.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (data, error) in
                     if let altitudeData = data {
                         let position = Double(truncating: altitudeData.relativeAltitude)
-                        // print("RELATIVE ALTITUDE: \(altitudeData.relativeAltitude)")
-                        // print("HEIGHT CHANGE: \(heightChange)")
                         if position > self.MIN_STRETCH_HEIGHT {
                             // self.doneButton.isHidden = false
                             self.altimeter.stopRelativeAltitudeUpdates()
@@ -143,7 +131,6 @@ class ExerciseGameController: UIViewController {
             motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
                 if let accelerationData = data {
                     if accelerationData.acceleration.x > self.ACCELERATION_FORCE || accelerationData.acceleration.y > self.ACCELERATION_FORCE {
-                        // self.doneButton.isHidden = false
                         self.motionManager.stopAccelerometerUpdates()
                         self.feedbackTaskComplete()
                         self.doneButton.sendActions(for: .touchUpInside)
@@ -158,9 +145,7 @@ class ExerciseGameController: UIViewController {
                 altimeter.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (data, error) in
                     if let altitudeData = data {
                         let position = Double(truncating: altitudeData.relativeAltitude)
-                        // print("HEIGHT CHANGE: \(position)")
                         if position < 0 && abs(position) > self.MIN_CROUCH_HEIGHT && self.timerSeconds < 1 {
-                            // self.doneButton.isHidden = false
                             self.altimeter.stopRelativeAltitudeUpdates()
                             self.feedbackTaskComplete()
                             self.doneButton.sendActions(for: .touchUpInside)
@@ -192,8 +177,7 @@ class ExerciseGameController: UIViewController {
     }
     
     private func feedbackTaskComplete() {
-        // Play predefined system sound (AudioServices)
-        // 1022 Calypso, 1025 Fanfare
+        // Play predefined system sound (AudioServices): 1025 Fanfare
         AudioServicesPlaySystemSound(1025)
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
     }

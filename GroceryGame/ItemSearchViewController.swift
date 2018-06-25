@@ -50,25 +50,6 @@ class ItemSearchViewController: UIViewController {
         touchLabel.center = view.center
         view.addSubview(touchLabel)
     }
-
-    /*
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    */
-
-    /*
-    // MARK: Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "StartExercise" {
-            let destination = segue.destination as! ExerciseGameController
-            destination.points = points
-        }
-    }
-    */
     
     // MARK: Actions
     
@@ -211,37 +192,5 @@ class ItemSearchViewController: UIViewController {
         let homeController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
         navigationController?.pushViewController(homeController, animated: true)
     }
-    
-    /*
-    // The following 2 functions were used to test Play mode flow with tap gesture.
-    // Delete them once all the functionality is complete (and working ok)...
-     
-    private func playItem(item: GroceryItem, index: Int) {
-        itemImage.image = item.image
-        itemQuantity.text = "Quantity: \(item.quantity)"
-        presentItemAnimation(position: index)
-    }
-    
-    @objc private func nextItem() {
-        touchLabel.isHidden = true
-        tapNextItem.isEnabled = false
-        
-        if index - 1 < (playList?.items.count)! {
-            itemQuantity.isHidden = false
-            finishedButton.isHidden = false
-            playItem(item: (playList?.items[index - 1])!, index: index)
-            index += 1
-        } else if index > (playList?.items.count)! {
-            // Finish game
-            itemImage.isHidden = true
-            itemQuantity.isHidden = true
-            finishedButton.isHidden = true
-            endGameScreen()
-            
-            tapEndGame = UITapGestureRecognizer(target: self, action: #selector(endGame))
-            view.addGestureRecognizer(tapEndGame)
-        }
-    }
-    */
     
 }

@@ -33,13 +33,6 @@ class ItemPopoverViewController: UIViewController, UITextFieldDelegate, UIPopove
         
         quantityStepper.value = Double(quantityTextField.text!)!
     }
-
-    /*
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    */
     
     // MARK: UITextFieldDelegate
     
@@ -67,16 +60,6 @@ class ItemPopoverViewController: UIViewController, UITextFieldDelegate, UIPopove
         super.prepare(for: segue, sender: sender)
         
         itemToAdd = GroceryItem(itemName: nameTextField.text!, image: nil, quantity: Int(quantityTextField.text!)!)
-        
-        /*
-        // Configure popover presentation
-        if segue.identifier == "popAdd" {
-            let dst = segue.destination
-            if let pop = dst.popoverPresentationController {
-                pop.delegate = self
-            }
-        }
-        */
     }
     
     // MARK: Actions

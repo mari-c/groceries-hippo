@@ -47,13 +47,6 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         updateSaveButtonState()
     }
     
-    /*
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    */
-    
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -179,17 +172,6 @@ class AddListViewController: UIViewController, UITextFieldDelegate, UITableViewD
         items.append(eggs!)
         items.append(cereal!)
     }
-    
-    /*
-    private func saveGroceryItems() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(items, toFile: GroceryItem.ArchiveURL.path)
-        if isSuccessfulSave {
-            os_log("Grocery items successfully saved.", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed to save grocery items.", log: OSLog.default, type: .error)
-        }
-    }
-    */
     
     // Helper function to add given item to ItemTableViewCell
     private func insertItemCell() {
